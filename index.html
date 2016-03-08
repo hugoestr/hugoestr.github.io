@@ -3,74 +3,49 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title>Manifesto</title> 
+        <meta name="keywords" content="tumble,HTML,development,minimalism">
+        <title>Template and Sections</title> 
         <link rel="stylesheet" type="text/css" href="site.css"></link>
     </head>
    
     <body>
-    <h1> &gt;&gt;= Hugo Estrada</h2>
+    <header class="header">
+      <h1> &gt;&gt;= Hugo Estrada</h2>
+    </header>
 
-       <p> I am a software developer. I code in C#, Ruby, and many other languages.  I like poetry, museums, and ukuleles. I lead my life through the principles of dadaism and nonviolence.   
-       </p>
-
-       <h2>Site Manifesto</h2>
-       
-       <h3>The web is simple</h3>
-       <p>The web is text files and hyperlinks navigated through a browser. You use a markup language to format your content. You use markup to link other text files or resources.  That is it. That is why back in the 90s any teenager with access to a computer and the internet could decide to write a web page during lunch time and have one before dinner.</p>
-       
-       <p> We wanted more interaction, though. So we quickly added forms and JavaScript. So you could either run scripts on the browser or send them to a server for data to be processed. Then we would see a page giving us the output. Once at the server we could decide to save that data somewhere, if we wished it so.</p>
-
-       <p>This is still the basics of the web and web programming. We still have what amounts to a simple stack.</p>
-
-       <h3>Our tools are complex</h3>
-       <p>If the web is so simple, why is it so hard to do web programming? Whereas in the early years of the web the problem was that we lacked good tools, today the problem is that our tools are too complex. The complexity of languages, frameworks, and tooling to support around those languages and frameworks is what makes web development hard. It used to be that only backend web development was hard. Now front end development also is overly complex.</p>
-
-       <p>I have found that most of the difficult problems I face at work are working around a limitation of a framework. Problems that if I had total control over the code I would be solved with a JavaScript include html element. Or by adding an attribute. Simple problems. Yet I cannot make that change. Sometimes it is closed code, so I have no way to making that change. But even if it is opened source, if I do a change it will break the library in a future upgrade. We could ask to have the change included. Yet sometimes the change only really applies to your use case, and you or the project manager is reluctant to make a change to an API to address an edge case.</p>
-
-       <p>Yet sometimes even starting a problem takes forever. It is disturbing how common the experience of wanting to try a new technology and spending hours just setting up the project. Often the end of the story involves giving up on the technology alltogether.</p>
-
-       <p>Another common project is how the project died, yet your application depends on it. Or how the latest update broke your code.</p>
-
-       <p>So why have we made it so hard on ourselves? An unfortunate reality is that a quick way to make a name for yourself is to create a library or a framework. Having the words "creator of" next our name has a patina that "maintainer of" lacks, unless it is a high profile project.  So there is a builtin payoff to create more frameworks and libraries. Some languages make it so easy to do, that everyone jumps in and writes their own library. When you have such a variety of choices, then having configurable tooling is a necessity.</p>
-
-       <p>And if it was only complexity on the development side, that would be bad enough. Yet user experience suffers from this as well. In the US most people enjoy faster internet speeds than we had back in the 90s. Yet sometimes the internet feels slower. So we use more tools, more frameworks, and more libraries to get around problems of google spiders not being able to see your SPA or for why your site is slow.</p>
-
-       <p>You know what is fast and responsive? Static HTML. Yes, the web, if you drop many of our tools, is rather fast.</p>
-
-       <h3>Autonomy and democracy</h3>
-       <p>The complexity of tools means that people are left outside of the digital creator world. HTML was the BASIC of the 90s. You could learn it in an afternoon. Individuals had full access to publishing whatever they wanted with minimal tools and knowledge.</p> 
-
-       <p>This is still the case today. Probably more so than in the past. Yet most people wouldn't see people who do this as coders or web developers. </p>
-       
-       <h3>We lost the semantics of hyperlinked text</h3>
-       <p> Our pursuit of tools made us lose more than just SEO, speed, and accesibility. In the way we lost the semantics of hypertext. We use it as very simple buttons and a nifty way to link to sources. Yet Hypertext is a lot more. Way more. Google wouldn't be google today if the creators are as blind to the semantic significance of the link from page to page.</p>
-
-       <p>Hyperlinks show related content. They show decisions. They show flow of thought and action. Surprised? I was too once I discovered hypertexed narratives again. Go back and look at the early web. Most people were keenly aware about what it meant to link to other pages. What it could mean. How we could represent machine state via pages.</p>
-
-       <p>The early web was keenly aware of these meanings. So people explored them. They played with it. They wrote stories. They wrote puzzles. They felt the potential inherited within the hyperlink.</p>
-
-       <p>We lost its meaning as we began using links mainly as buttons and addresses. The hyperlinked metaphor died. Ironically the link is used in every single web applications.</p>
+      <article class="article">
+        <h2 class="title">Template and Sections</h2> 
+        <p class="summary">
+          I needed a template. While working on the template, I reviewed semantic sections in HTML 5. 
+        </p>
 
 
+        <p> I wrote notes for a technical article that I am writing for the site. I was ready to start writing a cleaner draft, and I ran into my first problem with the minimalismtic website. The issue was that I needed to make a second page that follows the format of the first one. This wasn't that hard to solve. All what I did was to copy the previous entry and clean the content. Whenever I need to create another page, I can jump into the shell and write:
 
-       <h3>The solution: YAGNI, as if you meant it</h3>
-       <p>You Ain't Gonna Need it (YAGNI), is an often quoted philosophy that is meant to remind us to focus on what matters. We think of this in terms of features. We should think of it in terms of tools and frameworks as well. And we should apply to it as we actuall mean it.</p>
-      
-       <p> A client says that they want a blog. Give them tumblr or wordpress. If they need more control, over the code, give them html pages. If you are the client and you are a developer,  Most people will suggest Jekyll. Let's go one step further: write your blog using a text-editor. Add scripts to automate stuff as you needed it. Not only will you be able to get your page off the ground faster, you will also get a better insight on how the more elaborate frameworks work.</p>
+        <code>
+            cp template.html &lt;new_page.html&gt;
+        </code> 
+
+        That is all what I need to do to solve <em>my current</em> problem. 
+        </p>
+
+        <p>While I was making the template, I decided to review the semantic sections that were included in HTML 5 so that I can include those elements. If you recall, HTML 5 included elements such as &lt;article&gt; &lt;header&gt; &lt;footer&gt;, etc. You can find details about these elements in <a href="&lt;header&gt;">MDN's HTML Elements page</a>. <a href="https://developer.mozilla.org">MDN</a> has an article that describes a use case for these <a href="https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/Using_HTML_sections_and_outlines#Defining_Sections_in_HTML5">html 5 semantic sections</a>
 
 
+        <section class="tags">
+         Tags: minimalism, HTML, development, tumble
+        </section> 
+      </article> 
 
-       <h3>This web site</h3>
-       <p>This web site is following this minimalistic plan. This page, the first one of the site, is written only with html. I will add tools and scripts as I see a need for them. Its design is also meant to stay minimalistic. </p> 
+       <footer class="footer">
 
-
-
-       <h4>Say hello</h4>
-       <p>
+         <p class="about">About me: I am a software developer. I code in C#, Ruby, and many other languages.  I like poetry, museums, and ukuleles. I lead my life through the principles of dadaism and nonviolence.  </p>
+          <p>
           <a href="http://twitter.com/hugoestr/">twitter.com/hugoestr</a><br />
           <a href="http://github.com/hugoestr/">github.com/hugoestr</a>
         </p> 
 
         <p>Lovingly crafted by hand with <a href="http://www.vim.org/">Vim</a></p>
+      </footer>
     </body>
 </html>
