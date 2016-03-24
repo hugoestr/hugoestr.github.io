@@ -5,5 +5,14 @@ task :publish do
 
   name = ARGV[1]
   puts "copying #{name} as index"
-  exec "cp #{name} index.html"
+  system "cp #{name} index.html"
+  
+  git_publish
+end
+
+# utilities
+def git_publish()
+  puts "git adding and commiting"
+  `git add index.html`
+  `git commit -m "published on #{Time.now.to_s}"`
 end
