@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta name="keywords" content="elixir,quicksort,algorithms">
+        <title>Quicksort in elixir</title> 
+        <link rel="stylesheet" type="text/css" href="site.css"></link>
+    </head>
+   
+    <body>
+    <header class="header">
+      <h1> &gt;&gt;= Hugo Estrada</h2>
+    </header>
+
+      <article class="article">
+        <h2 class="title">Simple quicksort in elixir</h2> 
+        <p class="summary">
+I implemented a simple quick sort in elixir to learn about the language.
+        </p>
+
+        <p>I have been reading a lot about <a href="http://elixir-lang.org/">elixir</a>. Yet no language is learned by reading it. You must do something with it. So to get some concrete learning done, I decided to do a simple implimentation of <a href="https://en.wikipedia.org/wiki/Quicksort">quicksort</a> using elixir. This is my first script beyond tutorials. Tutorial guide you through ideas and concepts found in the language. Trying to do something by yourself helps to truly learn the concepts.</p>
+
+        <p>I started by creating a test. I could have searched for a test library in elixir. Then I would have spent half and hour to an hour doing research. Instead I implemented a very simple function that tests equality. This is all what I need since I am exploring the language.</p>
+
+        <p>Now that I had a failing test, I could implement the algorithm. Recently I saw a lighting talk at Ruby Retrocession, organized by <a href="http://arlingtonruby.org/">Arlington Ruby</a> where they explained how the algorithm works. So with that vague memory in mind, I began my implementation. This is the small script I wrote. Under it I list what I learned from this exercise.</p>
+
+          <script src="https://gist.github.com/hugoestr/f299fedf7d6994b3f1fe.js"></script>
+
+
+        <h3>What I learned</h3>
+        <h4>All functions must be in modules</h4>
+        <p>This is something of a surprise when you are used to defining stand-alone functions in python or ruby. </p>
+
+        <h4>How to get head and tail of a list</h4>
+        <p>This was simple. You use pattern matching: [head|tail] = [1,2,3,4].</p>
+
+        <h4>IO.inspect</h4>
+        <p>I wanted to print the array to confirm its value. I did this with IO.puts, and it didn't work. Since Elixir is influenced by ruby, I searched for inspect. It lovingly lives in IO.inspect(input). This made it ridiculously happy.</p>
+
+        <h4>The Enum library</h4>
+        <p>The Enum library is where all of functional programming functions for list are located. In this case I wanted to use the filter method. The documentation is excellent.</p>
+
+
+        <h4>How to do pattern matching with function definition</h4>
+        <p> We have two syntax shapes for pick from. We can define each function or we can have an aggregate function definition if the base cases return a simple value. Since the aggregate function definition is new to me, I am sharing what it looks like.  
+        <pre><code>
+            def fn(pattern1), do: <return>
+            def fn(pattern2), do: <return>
+            def fn(pattern3)
+                <body>
+            end
+          </code>
+        </pre>
+        
+        </p>
+
+        <h4>How to properly concatenate lists</h4>
+        <p>I kept running into this error where I wanted to join the pivot and the result of the two recursive quick sorts
+          <code>
+            qsort(lower) ++ pivot ++ qsort(higher)
+          </code>
+          The problem here was that pivot wasn't a list. So I had to change it to look like 
+          <code>
+            qsort(lower) ++ [pivot] ++ qsort(higher)
+          </code>
+
+          and make sure that the function definition that matched the empty pivot value returned it as a list, [pivot].
+        </p>
+
+
+        
+
+      
+
+        <section class="tags">
+         Tags: elixir, quicksort, algorithms
+        </section> 
+      </article> 
+
+       <footer class="footer">
+
+         <p class="about">About me: I am a software developer. I code in C#, Ruby, and many other languages.  I like poetry, museums, and ukuleles. I lead my life through the principles of dadaism and nonviolence.  </p>
+          <p>
+          <a href="http://twitter.com/hugoestr/">twitter.com/hugoestr</a><br />
+          <a href="http://github.com/hugoestr/">github.com/hugoestr</a>
+        </p> 
+
+        <p>Lovingly crafted by hand with <a href="http://www.vim.org/">Vim</a></p>
+      </footer>
+    </body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta name="keywords" content="OS,multitasking,ruby,concurrency">
+        <title>Template and Sections</title> 
+        <link rel="stylesheet" type="text/css" href="site.css"></link>
+    </head>
+   
+    <body>
+    <header class="header">
+      <h1> &gt;&gt;= Hugo Estrada</h2>
+    </header>
+
+      <article class="article">
+        <h2 class="title">Understanding multitasking</h2> 
+        <p class="summary">
+          Understanding multitasking concepts by writing a series of ruby scripts. 
+        </p>
+
+        <p>I want to have a better understanding of concurrency. I have read a lot about the subject, but often CS knowledge doesn't solidify unless one implements something in code. Since knowledge solidifies even better when you write about it, I am sharing my experiments and learning through a small number of blog entries.</p>
+
+        <h3>The singletasking vs. multitasking computer</h3>
+    
+        <p>The simplest computer architecture allows for one program to run at a time. The user, through the code, has total control over the computer. And this is how the earlier computers were built. Most of the time, when we code, we use this model of how the computer behaves because it lends itself for faster and simpler solutions.</p>
+
+        <p>Computers were expensive, so having computers waiting around when the code was involved in Input/Output (I/O) was considered a waste. This was particularly important at a time when computing was charged by the instruction. So by the 1960s you had groups of people working on creating a multitasking system that would allow programs to use the processor while some other operation, such as I/O or waiting for user input, was occurring.</p>
+
+        <p>The most natural solution would be to create a system that could switch between different programs, execute a few lines of code, and switch to another one. Also useful would be to switch to another program while one program was busy with I/O operations. Coming up with this solution would also allow for several users to use the same computer at the same time. Since humans are super slow compared to computers, by quickly switching between programs it could give users the illusion that they were the only users controlling the computer.</p>
+
+        <p>Now let's review again how a computer is put together. This is important since the problems connected with implementing a multitasking machine are directly involved with computer architecture.</p>
+
+        <p>A computer has a processor, where one does mathematical operations, loads data from and to memory, and has a number of counters. It also has a memory, which is a long list of locations where we can hold values. Following Von Newman computer architecture, the programs will be stored within the memory, along with data. The processor has a counter that tell us where in the program we are.</p>
+        
+
+        <section class="tags">
+         Tags: OS, multitasking, ruby, concurrency
+        </section> 
+      </article> 
+
+       <footer class="footer">
+
+         <p class="about">About me: I am a software developer. I code in C#, Ruby, and many other languages.  I like poetry, museums, and ukuleles. I lead my life through the principles of dadaism and nonviolence.  </p>
+          <p>
+          <a href="http://twitter.com/hugoestr/">twitter.com/hugoestr</a><br />
+          <a href="http://github.com/hugoestr/">github.com/hugoestr</a>
+        </p> 
+
+        <p>Lovingly crafted by hand with <a href="http://www.vim.org/">Vim</a></p>
+      </footer>
+    </body>
+</html>
