@@ -1,17 +1,18 @@
 <!DOCTYPE html>
 <html>
     <head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <meta name="keywords" content="elixir,quicksort,algorithms">
+        <meta id="keywords" name="keywords" content="elixir, quicksort, algorithms">
         <title>Quicksort in elixir</title> 
-        <link rel="stylesheet" type="text/css" href="site.css"></link>
+        <link id="stylesheet" rel="stylesheet" type="text/css" href="site.css">
     </head>
    
     <body>
     <header class="header">
-      <h1> &gt;&gt;= Hugo Estrada</h2>
-    </header>
+      <h1> &gt;&gt;= Hugo Estrada
+    </h1></header>
 
       <article class="article">
         <h2 class="title">Simple quicksort in elixir</h2> 
@@ -36,7 +37,7 @@ I implemented a simple quick sort in elixir to learn about the language.
         <p>This was simple. You use pattern matching: [head|tail] = [1,2,3,4].</p>
 
         <h4>IO.inspect</h4>
-        <p>I wanted to print the array to confirm its value. I did this with IO.puts, and it didn't work. Since Elixir is influenced by ruby, I searched for inspect. It lovingly lives in IO.inspect(input). This made it ridiculously happy.</p>
+        <p>I wanted to print the array to confirm its value. I did this with IO.puts, and it didnt work. Since Elixir is influenced by ruby, I searched for inspect. It lovingly lives in IO.inspect(input). This made it ridiculously happy.</p>
 
         <h4>The Enum library</h4>
         <p>The Enum library is where all of functional programming functions for list are located. In this case I wanted to use the filter method. The documentation is excellent.</p>
@@ -44,22 +45,23 @@ I implemented a simple quick sort in elixir to learn about the language.
 
         <h4>How to do pattern matching with function definition</h4>
         <p> We have two syntax shapes for pick from. We can define each function or we can have an aggregate function definition if the base cases return a simple value. Since the aggregate function definition is new to me, I am sharing what it looks like.  
-        <pre><code>
+        </p>
+<pre><code>
             def fn(pattern1), do: <return>
             def fn(pattern2), do: <return>
             def fn(pattern3)
-                <body>
+                
             end
-          </code>
+          </return></return></code>
         </pre>
-        </p>
+        
 
         <h4>How to properly concatenate lists</h4>
         <p>I kept running into this error where I wanted to join the pivot and the result of the two recursive quick sorts
           <code>
             qsort(lower) ++ pivot ++ qsort(higher)
           </code>
-          The problem here was that pivot wasn't a list. So I had to change it to look like 
+          The problem here was that pivot wasnt a list. So I had to change it to look like 
           <code>
             qsort(lower) ++ [pivot] ++ qsort(higher)
           </code>
@@ -73,7 +75,7 @@ I implemented a simple quick sort in elixir to learn about the language.
       
 
         <section class="tags">
-         Tags: elixir, quicksort, algorithms
+          Tags: <span id="tags">elixir, quicksort, algorithms</span>
         </section> 
       </article> 
 
@@ -81,11 +83,12 @@ I implemented a simple quick sort in elixir to learn about the language.
 
          <p class="about">About me: I am a software developer. I code in C#, Ruby, and many other languages.  I like poetry, museums, and ukuleles. I lead my life through the principles of dadaism and nonviolence.  </p>
           <p>
-          <a href="http://twitter.com/hugoestr/">twitter.com/hugoestr</a><br />
+          <a href="http://twitter.com/hugoestr/">twitter.com/hugoestr</a><br>
           <a href="http://github.com/hugoestr/">github.com/hugoestr</a>
         </p> 
 
         <p>Lovingly crafted by hand with <a href="http://www.vim.org/">Vim</a></p>
       </footer>
-    </body>
+    
+</body>
 </html>
