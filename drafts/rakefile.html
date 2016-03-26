@@ -3,9 +3,9 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <meta name="keywords" content="tumble,HTML,development,minimalism, ruby">
+        <meta id="keywords" name="keywords" content="tumble,HTML,development,minimalism, ruby">
         <title>Adding a rakefile</title> 
-        <link rel="stylesheet" type="text/css" href="site.css"></link>
+        <link id="stylesheet" rel="stylesheet" type="text/css" href="site.css"></link>
     </head>
    
     <body>
@@ -19,14 +19,23 @@
           I added a rakefile to my blog setup to facilitate future tasks.
         </p>
 
-        <p>The next step on my adventure of minimalistic blogging was to add a rakefile to begin organizing and automating some regular tasks. The first task that I added is "publish". The first task that I wrote was to copy the article that is ready to be published as the index.html file. A few days later I added git commands so that it would commit the change automatically.</p>
-       
-        <p> In the future it may do a number of things, such as generate/add the article in an rss feed and add the last few entries as links in the page. Maybe.</p>
+        <p>The next step on my adventure of minimalistic blogging was to add a <a href="https://github.com/ruby/rake">rakefile</a> to begin organizing and automating some regular tasks.  The first task that I added is "publish". The first task that I wrote was to copy the article that is ready to be published as the index.html file. A few days later I added git commands so that it would commit the change automatically.</p>
+
+        <p>A few days later I reorganized the file structure. So I needed to change the publish task to do more. Now it does some changes to publish it as the index. I also added a draft task, to make life easier. Finally I have added a function that will query the last few articles and add them as links at the bottom of the article.</p>
+
+        <p>In the process I have used <a href="http://www.nokogiri.org/">nokogiri</a> and tr. One of the most fun elements of the experiment is that I am actually programming rather than configuring and reading documentation pages.</p>
+
 
         <section class="tags">
-         Tags: tumble, hyptertext, minimalist, ruby 
+          Tags:  <span id="tags">hyptertext, minimalist, ruby</span> 
         </section> 
       </article> 
+
+      <div class="links">
+        <div id="related-links"></div>
+        <div id="previous-links"></div>
+      </div>
+      
 
        <footer class="footer">
 
