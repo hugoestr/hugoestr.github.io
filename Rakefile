@@ -22,6 +22,7 @@ task :draft do
 end
 
 task :test do
+  change_stylesheet_location "index.html"
 end
 
 
@@ -85,7 +86,7 @@ end
 
 def draft_commit(name)
   puts "commiting draft changes"
-  `git rm --cached drafts/#{name}`
+  #`git rm --cached drafts/#{name}`
   `git add blog/#{name}`
   `git commit -m "Cleaned up and moved #{name} from draft to blog."`
 end
