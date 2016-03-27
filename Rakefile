@@ -45,30 +45,11 @@ def adjust(draft)
   to_html draft, doc
 end
 
-def does_not_exist(name)
-  result = false
-  
-  if File.exist? name
-    puts "#{name} doesn't exist"
-    result = true
-  end
-
-  result
-end
-
-def ready_to_publish(draft)
-  path = "drafts/#{draft}"
-  # add_to_rss draft
-  adjust path
-  move_to_blogs draft
-end
-
-
 def change_stylesheet_location(draft)
   page = File.read draft
   doc = Nokogiri::HTML page
+
   puts "re-assigning stylesheet"
-  
   stylesheet = doc.css('#stylesheet').first
   stylesheet.attributes["href"].value = "site.css" 
 
@@ -82,10 +63,6 @@ def clean_cr_from(draft)
   shell "mv -f temp.html #{draft}"
 end
 
-def to_windows(name)
-  name.gsub "/", "\\\\"
-end
-
 def copy_meta(doc)
   puts "copying tags to meta"
 
@@ -93,6 +70,17 @@ def copy_meta(doc)
   tags = doc.css('#tags').first
 
   keywords_meta.attributes['content'].value = tags.content
+end
+
+def does_not_exist(name)
+  result = false
+  
+  if File.exist? name
+    puts "#{name} doesn't exist"
+    result = true
+  end
+
+  result
 end
 
 def draft_commit(name)
@@ -121,6 +109,13 @@ def publish(name)
   
   draft_commit name
   index_commit name
+end
+
+def ready_to_publish(draft)
+  path = "drafts/#{draft}"
+  # add_to_rss draft
+  adjust path
+  move_to_blogs draft
 end
 
 def shell(command)
