@@ -41,6 +41,7 @@ def adjust(draft)
 
   puts "adjusting file"
   copy_meta doc 
+  copy_title doc 
   #add_links doc
 
   to_html draft, doc
@@ -71,6 +72,15 @@ def copy_meta(doc)
   tags = doc.css('#tags').first
 
   keywords_meta.attributes['content'].value = tags.content
+end
+
+def copy_title(doc)
+  puts "copying headline to title"
+
+  title = doc.css('title').first
+  headline = doc.css('.title').first
+
+  title.content = headline.content
 end
 
 def does_not_exist(name)
