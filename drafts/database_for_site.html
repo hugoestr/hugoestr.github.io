@@ -17,11 +17,25 @@
       <article class="article">
         <h2 class="title">Database for Site</h2> 
         <p class="summary">
-         
+          When searching for the simplest database technology for my blog, I settled on atom 
         </p>
 
+        <p>The next feature that I wanted to implement was <a href="https://en.wikipedia.org/wiki/RSS">rss</a>/<a href="https://en.wikipedia.org/wiki/Atom_%28standard%29">atom</a>. RSS and atom are a format that allows to communicate with others that you have published a new entry. They are boths XML documents. I decided to add syndication because this would give a stream view of the site. RSS subscriptions, although out of favor today, may come because they are part of the open web, as opposed to the closed gardens like facebook and twitter.</p>
+
+        <p>So I need to hold the information for each article in some handy place. I rejected a sql database off the bat. Even <a href="https://www.sqlite.org/">sqlite</a> is overkill at this point. Most of the coding has been done in Ruby and Unix commands, and a sql database, even sqlite, would bring another high level of complication. The bottom line is that I don't need it right now. Perhaps in the future I will, but not at this point.</p>
+
+        <p>Then I thought that perhaps I could use straight text or yaml. Yaml is attractive, but I recalled a security weakness it had years ago. It probably has been solved, but I want to code rather than do research. Text was essentially winning. All I had to do was to figure out a structured format that would make it easy to parse. And since it was going to be part of the site, people could see it. Since people could see it, then I can go ahead and make it pretty. So I thought I would use html. I began working on the structure, and I realized that I was making my own folk version of xml. So I decided to use xml as the database.</p>
+
+  <p>I decided to build the cannoical data in atom. I tried to use the ruby RSS library to build it, but then I ran into a lack of documentation. I also found some weird output. This is the first time I have worked in XML since 2009, so I was rusty. I looked at the source code, but I was spending too much time reading documentation rather than advancing the project.</p>
+
+  <p>So I began writing atom xml by hand. I used examples from <a href="https://tools.ietf.org/html/rfc4287">rfc 4287</a>. I added the elements that I wanted, and I aggressively used the <a href="https://validator.w3.org/feed/check.cgi">W3C rss/atom validator</a>.</p>
+
+  <p>The next problem was handling the id. I ended up reading about <a href="https://tools.ietf.org/html/rfc3987">RFC 3987, International Resource Identifiers (IRI)</a>. It wasn't clear exactly what was it that atom wanted here. After googling a bit and looking at examples, I decided to use urn:uuid IRI, which uses a uuid. I learned how to produce these uuids in ruby ( ruby -e "require 'securerandom'; puts SecureRandom.uuid"), and I was set. I entered the five entries I have so far by hand. It is amazing how well one understands the basics of the atom format once you enter it a few times by hand.</p>
+
+  <p>Now we are ready to automate. I am not interested in recreating this file over and over again. I want it to be built up, and then use it to create other feeds and potentially other pages.</p>
+
         <section class="tags">
-          Tags: <span id="tags"></span>
+          Tags: <span id="tags">html, minimalism, Captain Ahab</span>
         </section> 
       </article> 
 
