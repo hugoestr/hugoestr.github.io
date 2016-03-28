@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"
+  xmlns:dc="http://purl.org/dc/elements/1.1/" >
+  <id>urn:uuid:2573683d-78b6-4325-9a77-0cd729d6329b</id>
+  <title>&gt;&gt;= Hugo Estrada</title>
+  <subtitle>A programming blog.</subtitle>
+  
+  <link href="http://hugoestr.github.io/feed.atom" rel="self" />
+  <link href="http://hugoestr.github.io/" />
+
+  <author><name>Hugo Estrada</name></author>
+  <updated>2016-03-27T13:46:56-04:00</updated>
+  
+  <entry>
+    <title>Quicksort in elixir</title>
+    <link href="https://hugoestr.github.io/blog/qsort_elixir.html" />
+    <updated>2016-03-04T13:46:56-04:00</updated> 
+    <published>2016-03-04T13:46:56-04:00</published>
+    <summary>I implemented a simple quick sort in elixir to learn about the language.</summary>
+    <author><name>Hugo Estrada</name></author>
+
+    <category term="elixir" />
+    <category term="quicksort" />
+    <category term="algorithms" />
+    <id>urn:uuid:19619850-6b80-47b0-942b-0617ce3962cf</id>
+  </entry>
+
+   <entry>
+    <title>Daggum.com: inspiration for the site</title>
+    <link href="https://hugoestr.github.io/blog/daggum.html" />
+    <updated>2016-03-03T13:46:56-04:00</updated> 
+    <published>2016-03-03T13:46:56-04:00</published>
+    <summary>James Hague's blog, "Programming in the twenty-first century" is one of my inspirations for this site.</summary>
+    <author><name>Hugo Estrada</name></author>
+
+    <category term="html" />
+    <category term="minimalism" />
+    <category term="influence" />
+    <category term="development" />
+    <id>urn:uuid:6dd678bc-54d9-4699-b51e-662dcf8181dc</id>
+  </entry>
+
+
+   <entry>
+    <title>Template and Sections</title>
+    <link href="https://hugoestr.github.io/blog/template_and_sections.html" />
+    <updated>2016-03-02T13:46:56-04:00</updated> 
+    <published>2016-03-02T13:46:56-04:00</published>
+    <summary>  I needed a template. While working on the template, I reviewed semantic sections in HTML 5.</summary>
+    <author><name>Hugo Estrada</name></author>
+
+    <category term="html" />
+    <category term="minimalism" />
+    <category term="Captain Ahab" />
+    <category term="development" />
+    <id>urn:uuid:fd001dd4-e6c2-4e52-9a57-3f3b2102078c</id>
+  </entry>
+
+
+  <entry>
+    <title>Manifesto</title>
+    <link href="https://hugoestr.github.io/blog/manifesto.html" />
+    <updated>2016-03-01T13:46:56-04:00</updated> 
+    <published>2016-03-01T13:46:56-04:00</published>
+    <summary>We should seek simpler models of web development. This site an an experiment to create a blog platform following the principles of minimalism.</summary>
+    <author><name>Hugo Estrada</name></author>
+
+    <category term="html" />
+    <category term="minimalism" />
+    <category term="Captain Ahab" />
+    <id>urn:uuid:046e08cf-f60d-45c7-adf3-e1a2008065ef</id>
+  </entry>
+  
+</feed>
