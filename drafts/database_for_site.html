@@ -17,25 +17,25 @@
       <article class="article">
         <h2 class="title">Database for Site</h2> 
         <p class="summary">
-          When searching for the simplest database technology for my blog, I settled on atom 
+          When searching for the simplest database technology for my blog, I settled for atom 
         </p>
 
-        <p>The next feature that I wanted to implement was <a href="https://en.wikipedia.org/wiki/RSS">rss</a>/<a href="https://en.wikipedia.org/wiki/Atom_%28standard%29">atom</a>. RSS and atom are a format that allows to communicate with others that you have published a new entry. They are boths XML documents. I decided to add syndication because this would give a stream view of the site. RSS subscriptions, although out of favor today, may come because they are part of the open web, as opposed to the closed gardens like facebook and twitter.</p>
+        <p>The next feature that I wanted to implement was <a href="https://en.wikipedia.org/wiki/RSS">rss</a>/<a href="https://en.wikipedia.org/wiki/Atom_%28standard%29">atom</a>. RSS and atom are a format that allows to communicate with others that you have published a new blog entry. They are both XML documents. I decided to add syndication because this would give a stream view of the site. RSS subscriptions are out of favor today. Yet I like it because it is part of the open web. Unless we use these open standards, there will be no hope in a resurgence of the open web. This is my modest contribution to it.</p>
 
-        <p>So I need to hold the information for each article in some handy place. I rejected a sql database off the bat. Even <a href="https://www.sqlite.org/">sqlite</a> is overkill at this point. Most of the coding has been done in Ruby and Unix commands, and a sql database, even sqlite, would bring another high level of complication. The bottom line is that I don't need it right now. Perhaps in the future I will, but not at this point.</p>
+        <p>I need to hold the information for each article in some handy place so that I can easily query metadata to build a feed and for other tasks. I rejected a sql database immediately. Even <a href="https://www.sqlite.org/">sqlite</a> is overkill at this point in terms of the greater complexity that it brings into this minimalistic project. The kinds of queries that I forsee needing are simple. I don't need a relational database at this point. Perhaps in the future I will have <em>the need</em> to use sql, but at this point I don't need it.</p>
 
-        <p>Then I thought that perhaps I could use straight text or yaml. Yaml is attractive, but I recalled a security weakness it had years ago. It probably has been solved, but I want to code rather than do research. Text was essentially winning. All I had to do was to figure out a structured format that would make it easy to parse. And since it was going to be part of the site, people could see it. Since people could see it, then I can go ahead and make it pretty. So I thought I would use html. I began working on the structure, and I realized that I was making my own folk version of xml. So I decided to use xml as the database.</p>
+  <p>I thought that perhaps I could use straight text. I wanted to keep this database as an available file within the site. Potentially people could see it. If they were going to see it, I could use html so that it would look pretty. I began working on the structure, and I realized that I was making my own folk version of an xml document on top of html. So I decided to use xml as the database. I would use atom. The feed would be the database.</p>
 
-  <p>I decided to build the cannoical data in atom. I tried to use the ruby RSS library to build it, but then I ran into a lack of documentation. I also found some weird output. This is the first time I have worked in XML since 2009, so I was rusty. I looked at the source code, but I was spending too much time reading documentation rather than advancing the project.</p>
+  <p> I am new to atom. I began writing atom xml by hand. I used examples from <a href="https://tools.ietf.org/html/rfc4287">rfc 4287</a>. I added the elements that I wanted, and I aggressively used the <a href="https://validator.w3.org/feed/check.cgi">W3C rss/atom validator</a>. It is amazing how quickly one can learn about a format if one spends about 15 minutes typing markup by hand.</p>
 
-  <p>So I began writing atom xml by hand. I used examples from <a href="https://tools.ietf.org/html/rfc4287">rfc 4287</a>. I added the elements that I wanted, and I aggressively used the <a href="https://validator.w3.org/feed/check.cgi">W3C rss/atom validator</a>.</p>
+  <p>While writing atom by hand I ran into a problem with the required &lt;id&gt; element. It kept failing validation. I was happy to add ids to it, but I didn't know exactly what it wanted. The RFC said it wanted an IRI. I had no idea what this was, so I learned about it once I found <a href="https://tools.ietf.org/html/rfc3987">RFC 3987, International Resource Identifiers (IRI)</a>. It wasn't clear exactly what was it that atom wanted here. After googling a bit and looking at examples, I decided to use urn:uuid IRI, which uses a uuid. I learned how to produce these uuids in ruby ( ruby -e "require 'securerandom'; puts SecureRandom.uuid"), and I was set.</p>
 
-  <p>The next problem was handling the id. I ended up reading about <a href="https://tools.ietf.org/html/rfc3987">RFC 3987, International Resource Identifiers (IRI)</a>. It wasn't clear exactly what was it that atom wanted here. After googling a bit and looking at examples, I decided to use urn:uuid IRI, which uses a uuid. I learned how to produce these uuids in ruby ( ruby -e "require 'securerandom'; puts SecureRandom.uuid"), and I was set. I entered the five entries I have so far by hand. It is amazing how well one understands the basics of the atom format once you enter it a few times by hand.</p>
-
-  <p>Now we are ready to automate. I am not interested in recreating this file over and over again. I want it to be built up, and then use it to create other feeds and potentially other pages.</p>
-
-        <section class="tags">
-          Tags: <span id="tags">html, minimalism, Captain Ahab</span>
+  <p>Now it was time to automate the work. It ended up being harder than I thought due to the difficulties that I ran into while working with xml and Nokogiri. I had a hard time figuring out how to create new elements and add them to an existing xml document. I eventually solved for problems and integrated the code into the rakefile.</p>
+  
+  <p>In terms of time, it would probably have been faster to work with sqlite. Yet I did learn more about how to work with xml using Nokogiri. So far I am happy with the results. A single file is working as a database and as a feed.</p> 
+        
+ <section class="tags">
+          Tags: <span id="tags">html, xml, nokogiri, minimalism, Captain Ahab</span>
         </section> 
       </article> 
 
@@ -46,8 +46,9 @@
       
        <footer class="footer">
 
-         <p class="about"><a href="blog/manifesto.html">About</a> me: I am a software developer. I code in C#, Ruby, and many other languages.  I like poetry, museums, and ukuleles. I lead my life through the principles of dadaism and nonviolence.</p>
-          <p>
+         <p class="about"><a href="http://hugoestr.github.io/blog/manifesto.html">About</a> me: I am a software developer. I code in C#, Ruby, and many other languages.  I like poetry, museums, and ukuleles. I lead my life through the principles of dadaism and nonviolence.</p>
+          <p>Follow: 
+          <a href="http://hugoestr.github.io/feed.atom">atom</a>  
           <a href="http://twitter.com/hugoestr/">twitter.com/hugoestr</a>  
           <a href="http://github.com/hugoestr/">github.com/hugoestr</a>
         </p> 
