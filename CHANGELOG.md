@@ -1,3 +1,4 @@
+3/27/2016 -- Atom feed included. It add the last three entries when publishing.
 3/26/2016 -- Rake task for draft. Changes to template. Modification of highlight
 3/24/2016 -- Rake file with publish task. Creating folders. 
 3/8/2016  -- Template file created to be used to create more pages.
