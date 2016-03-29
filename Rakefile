@@ -149,7 +149,7 @@ end
 def get_document_attributes(draft)
   result = {}
 
-  page = File.read "drafts/#{draft}"
+  page = File.read "blog/#{draft}"
   doc = Nokogiri::HTML page
   
   title = doc.css("title").first
