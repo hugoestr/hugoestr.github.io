@@ -30,7 +30,7 @@
 
   <p>While writing atom by hand I ran into a problem with the required &lt;id&gt; element. It kept failing validation. I was happy to add ids to it, but I didn't know exactly what it wanted. The RFC said it wanted an IRI. I had no idea what this was, so I learned about it once I found <a href="https://tools.ietf.org/html/rfc3987">RFC 3987, International Resource Identifiers (IRI)</a>. It wasn't clear exactly what was it that atom wanted here. After googling a bit and looking at examples, I decided to use urn:uuid IRI, which uses a uuid. I learned how to produce these uuids in ruby ( ruby -e "require 'securerandom'; puts SecureRandom.uuid"), and I was set.</p>
 
-  <p>Now it was time to automate the work. It ended up being harder than I thought due to the difficulties that I ran into while working with xml and Nokogiri. I had a hard time figuring out how to create new elements and add them to an existing xml document. I eventually solved for problems and integrated the code into the rakefile.</p>
+  <p>Writing the code to automate the feed creation ended up being harder than I thought due to the difficulties that I ran into while working with xml and Nokogiri. I had a hard time figuring out how to create new elements and add them to an existing xml document. I eventually solved for problems and integrated the code into the rakefile.</p>
   
   <p>In terms of time, it would probably have been faster to work with sqlite. Yet I did learn more about how to work with xml using Nokogiri. So far I am happy with the results. A single file is working as a database and as a feed.</p> 
         
@@ -47,10 +47,10 @@
        <footer class="footer">
 
          <p class="about"><a href="http://hugoestr.github.io/blog/manifesto.html">About</a> me: I am a software developer. I code in C#, Ruby, and many other languages.  I like poetry, museums, and ukuleles. I lead my life through the principles of dadaism and nonviolence.</p>
-          <p>Follow: 
+          <p>follow: 
           <a href="http://hugoestr.github.io/feed.atom">atom</a>  
-          <a href="http://twitter.com/hugoestr/">twitter.com/hugoestr</a>  
-          <a href="http://github.com/hugoestr/">github.com/hugoestr</a>
+          <a href="http://twitter.com/hugoestr/">@hugoestr</a>  
+          <a href="http://github.com/hugoestr/">github</a>
         </p> 
 
         <p>Lovingly crafted by hand with <a href="http://www.vim.org/">Vim</a></p>
