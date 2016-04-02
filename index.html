@@ -4,9 +4,9 @@
 <meta http-equiv="Content-Type" content="text/html; charset=IBM437">
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <meta id="keywords" name="keywords" content="html, xml, nokogiri, minimalism, Captain Ahab">
+        <meta id="keywords" name="keywords" content="ruby, minimalism, Captain Ahab">
         
-        <title>Database for Site</title> 
+        <title>Adding dates in the blog system</title> 
         <link id="stylesheet" rel="stylesheet" type="text/css" href="site.css">
     </head>
    
@@ -16,47 +16,48 @@
     </h1></header>
 
       <article class="article">
-        <h2 class="title">Database for Site</h2> 
-        <p class="summary" id="summary">
-          When searching for the simplest database technology for my blog, I settled for atom 
-        </p>
-
-        <p>The next feature that I wanted to implement was <a href="https://en.wikipedia.org/wiki/RSS">rss</a>/<a href="https://en.wikipedia.org/wiki/Atom_%28standard%29">atom</a>. RSS and atom are a format that allows to communicate with others that you have published a new blog entry. They are both XML documents. I decided to add syndication because this would give a stream view of the site. RSS subscriptions are out of favor today. Yet I like it because it is part of the open web. Unless we use these open standards, there will be no hope in a resurgence of the open web. This is my modest contribution to it.</p>
-
-        <p>I need to hold the information for each article in some handy place so that I can easily query metadata to build a feed and for other tasks. I rejected a sql database immediately. Even <a href="https://www.sqlite.org/">sqlite</a> is overkill at this point in terms of the greater complexity that it brings into this minimalistic project. The kinds of queries that I forsee needing are simple. I dont need a relational database at this point. Perhaps in the future I will have <em>the need</em> to use sql, but at this point I dont need it.</p>
-
-  <p>I thought that perhaps I could use straight text. I wanted to keep this database as an available file within the site. Potentially people could see it. If they were going to see it, I could use html so that it would look pretty. I began working on the structure, and I realized that I was making my own folk version of an xml document on top of html. So I decided to use xml as the database. I would use atom. The feed would be the database.</p>
-
-  <p> I am new to atom. I began writing atom xml by hand. I used examples from <a href="https://tools.ietf.org/html/rfc4287">rfc 4287</a>. I added the elements that I wanted, and I aggressively used the <a href="https://validator.w3.org/feed/check.cgi">W3C rss/atom validator</a>. It is amazing how quickly one can learn about a format if one spends about 15 minutes typing markup by hand.</p>
-
-  <p>While writing atom by hand I ran into a problem with the required &lt;id&gt; element. It kept failing validation. I was happy to add ids to it, but I didnt know exactly what it wanted. The RFC said it wanted an IRI. I had no idea what this was, so I learned about it once I found <a href="https://tools.ietf.org/html/rfc3987">RFC 3987, International Resource Identifiers (IRI)</a>. It wasnt clear exactly what was it that atom wanted here. After googling a bit and looking at examples, I decided to use urn:uuid IRI, which uses a uuid. I learned how to produce these uuids in ruby ( ruby -e "require securerandom; puts SecureRandom.uuid"), and I was set.</p>
-
-  <p>Writing the code to automate the feed creation ended up being harder than I thought due to the difficulties that I ran into while working with xml and Nokogiri. I had a hard time figuring out how to create new elements and add them to an existing xml document. I eventually solved for problems and integrated the code into the rakefile.</p>
-  
-  <p>In terms of time, it would probably have been faster to work with sqlite. Yet I did learn more about how to work with xml using Nokogiri. So far I am happy with the results. A single file is working as a database and as a feed.</p> 
+        <header>
+          <h2 class="title">Adding dates in the blog system</h2> 
+          <p class="summary" id="summary">
+I fixed the problem with the lack of dates with my minimal blogging system 
+          </p>
+          <p id="published-date" class="date">04-02-2016</p>
+        </header> 
         
- <section class="tags">
-          Tags: <span id="tags">html, xml, nokogiri, minimalism, Captain Ahab</span>
+        <section id="content">
+ 
+        <p>Last week I added an atom feed that is also working as a database of sorts for the minimalistic blogging system. As I was cleaning up, I realized that articles lacked a date and the feed wasnt changing its updated tag. I thought a lot about it, so I decided to spend the afternoon working on this.</p>
+
+        <p>I had not worked on the blogging system the whole week. So I was curious to see how easy it was going to be to change the code. The rake file feels too long. I was ready to battle through my code and discover many faulty pain points.</p>
+        <p>I was wrong. Fixing these two date problems ended up taking about 10 minutes. So my feeling that it was going to be painful to work with my code was wrong.</p>
+        <p>I am surprised how quickly I am to reaching the point where I will be done. There are two more features that I would like to add. Perhaps I will tackle one of them tomorrow.</p>
+
+
+        </section>
+
+
+        <section class="tags">
+          Tags: <span id="tags">ruby, minimalism, Captain Ahab</span>
         </section> 
       </article> 
 
       <div class="links">
         <div id="related-links"></div>
         <div id="previous-links">
-<a href="https://hugoestr.github.io/blog/qsort_elixir.html">Quicksort in elixir</a><br><a href="https://hugoestr.github.io/blog/daggum.html">Daggum.com: inspiration for the site</a><br><a href="https://hugoestr.github.io/blog/template_and_sections.html">Template and Sections</a><br>
+<a href="http://hugoestr.github.io/blog/database_for_site.html">Database for Site</a><br><a href="https://hugoestr.github.io/blog/qsort_elixir.html">Quicksort in elixir</a><br><a href="https://hugoestr.github.io/blog/daggum.html">Daggum.com: inspiration for the site</a><br>
 </div>
       </div>
       
        <footer class="footer">
 
          <p class="about"><a href="http://hugoestr.github.io/blog/manifesto.html">About</a> me: I am a software developer. I code in C#, Ruby, and many other languages.  I like poetry, museums, and ukuleles. I lead my life through the principles of dadaism and nonviolence.</p>
-          <p>follow: 
+        <p>
           <a href="http://hugoestr.github.io/feed.atom">atom</a>  
-          <a href="http://twitter.com/hugoestr/">@hugoestr</a>  
+          <a href="http://twitter.com/hugoestr/">twitter</a>  
           <a href="http://github.com/hugoestr/">github</a>
         </p> 
 
-        <p>Lovingly crafted by hand with <a href="http://www.vim.org/">Vim</a></p>
+        <p>Lovingly crafted by hand with <a href="http://www.vim.org/">Vim</a>; built with <a href="https://github.com/ruby/rake">rake</a> file.</p>
       </footer>
     </body>
 </html>
