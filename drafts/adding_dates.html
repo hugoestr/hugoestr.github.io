@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta id="keywords" name="keywords" content="">
+        
+        <title></title> 
+        <link id="stylesheet" rel="stylesheet" type="text/css" href="../site.css"></link>
+    </head>
+   
+    <body>
+    <header class="header">
+      <h1> &gt;&gt;= Hugo Estrada</h2>
+    </header>
+
+      <article class="article">
+        <header>
+          <h2 class="title">Adding dates in the blog system</h2> 
+          <p class="summary" id="summary">
+I fixed the problem with the lack of dates with my minimal blogging system 
+          </p>
+          <p id="published-date" class="date"></p>
+        </header> 
+        
+        <section id="content">
+ 
+        <p>Last week I added an atom feed that is also working as a database of sorts for the minimalistic blogging system. As I was cleaning up, I realized that articles lacked a date and the feed wasn't changing its updated tag. I thought a lot about it, so I decided to spend the afternoon working on this.</p>
+
+        <p>I had not worked on the blogging system the whole week. So I was curious to see how easy it was going to be to change the code. The rake file feels too long. I was ready to battle through my code and discover many faulty pain points.</p>
+        <p>I was wrong. Fixing these two date problems ended up taking about 10 minutes. So my feeling that it was going to be painful to work with my code was wrong.</p>
+        <p>I am surprised how quickly I am to reaching the point where I will be done. There are two more features that I would like to add. Perhaps I will tackle one of them tomorrow.</p>
+
+
+        </section>
+
+
+        <section class="tags">
+          Tags: <span id="tags">ruby, minimalism, Captain Ahab</span>
+        </section> 
+      </article> 
+
+      <div class="links">
+        <div id="related-links"></div>
+        <div id="previous-links"></div>
+      </div>
+      
+       <footer class="footer">
+
+         <p class="about"><a href="http://hugoestr.github.io/blog/manifesto.html">About</a> me: I am a software developer. I code in C#, Ruby, and many other languages.  I like poetry, museums, and ukuleles. I lead my life through the principles of dadaism and nonviolence.</p>
+        <p>
+          <a href="http://hugoestr.github.io/feed.atom">atom</a>  
+          <a href="http://twitter.com/hugoestr/">twitter</a>  
+          <a href="http://github.com/hugoestr/">github</a>
+        </p> 
+
+        <p>Lovingly crafted by hand with <a href="http://www.vim.org/">Vim</a>; built with <a href="https://github.com/ruby/rake">rake</a> file.</p>
+      </footer>
+    </body>
+</html>
