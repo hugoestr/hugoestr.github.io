@@ -25,7 +25,6 @@ task :draft do
 end
 
 task :test do
-  add_to_rss "test.html"
 end
 
 
@@ -37,6 +36,12 @@ def add_links(doc)
   entries.children.each {|child| previous_links.add_child child }
 end
 
+def add_publish_date(doc)
+  date = doc.css("#published-date").first
+  today = Time.new
+  date.content = today.strftime "%m-%d-%Y"
+end
+
 def add_to_dom(markup)
   node = node = Nokogiri::XML::fragment markup
   file = "feed.atom"
@@ -44,6 +49,7 @@ def add_to_dom(markup)
 
   doc = Nokogiri::XML feed
   updated = doc.css("updated").first
+  updated.content = Time.now.to_datetime.rfc3339
   updated.after node
  
   FileUtils.cp "feed.atom", "backup.atom"
@@ -56,6 +62,8 @@ def add_to_rss(draft)
   add_to_dom markup 
 end
 
+
+
 def adjust(draft)
   page = File.read draft
   doc = Nokogiri::HTML page 
@@ -64,6 +72,7 @@ def adjust(draft)
   copy_meta doc 
   copy_title doc 
   add_links doc
+  add_publish_date doc
 
   to_html draft, doc
 end
