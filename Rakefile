@@ -4,6 +4,8 @@ require 'date'
 require 'securerandom'
 require 'fileutils'
 
+require_relative 'lib/tags'
+
 task :publish do
   ARGV.each { |a| task a.to_sym do ; end }
   draft = ARGV[1]
@@ -24,6 +26,13 @@ task :draft do
   system "cp template.html drafts/#{name}"
 end
 
+task :clear_backups do
+  shell "rm blog/*.*~"  
+end
+
+task :collect_tags do
+  create_tags
+end
 
 # a task to test functions
 task :test do
@@ -31,6 +40,11 @@ end
 
 
 # utilities
+
+def create_tags()
+  tags = Tags.new "blog", "tags", "template.html"
+  tags.create_tags
+end
 
 def add_links(doc)
   previous_links = doc.css("#previous-links").first
@@ -45,7 +59,7 @@ def add_publish_date(doc)
 end
 
 def add_to_dom(markup)
-  node = node = Nokogiri::XML::fragment markup
+  node = Nokogiri::XML::fragment markup
   file = "feed.atom"
   feed = File.read file 
 
