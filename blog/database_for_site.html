@@ -20,7 +20,7 @@
         <p class="summary" id="summary">
           When searching for the simplest database technology for my blog, I settled for atom 
         </p>
-
+        <section id="content">
         <p>The next feature that I wanted to implement was <a href="https://en.wikipedia.org/wiki/RSS">rss</a>/<a href="https://en.wikipedia.org/wiki/Atom_%28standard%29">atom</a>. RSS and atom are a format that allows to communicate with others that you have published a new blog entry. They are both XML documents. I decided to add syndication because this would give a stream view of the site. RSS subscriptions are out of favor today. Yet I like it because it is part of the open web. Unless we use these open standards, there will be no hope in a resurgence of the open web. This is my modest contribution to it.</p>
 
         <p>I need to hold the information for each article in some handy place so that I can easily query metadata to build a feed and for other tasks. I rejected a sql database immediately. Even <a href="https://www.sqlite.org/">sqlite</a> is overkill at this point in terms of the greater complexity that it brings into this minimalistic project. The kinds of queries that I forsee needing are simple. I dont need a relational database at this point. Perhaps in the future I will have <em>the need</em> to use sql, but at this point I dont need it.</p>
@@ -34,7 +34,7 @@
   <p>Writing the code to automate the feed creation ended up being harder than I thought due to the difficulties that I ran into while working with xml and Nokogiri. I had a hard time figuring out how to create new elements and add them to an existing xml document. I eventually solved for problems and integrated the code into the rakefile.</p>
   
   <p>In terms of time, it would probably have been faster to work with sqlite. Yet I did learn more about how to work with xml using Nokogiri. So far I am happy with the results. A single file is working as a database and as a feed.</p> 
-        
+</section> 
  <section class="tags">
           Tags: <span id="tags">html, xml, nokogiri, minimalism, Captain Ahab</span>
         </section> 

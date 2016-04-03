@@ -24,6 +24,8 @@ task :draft do
   system "cp template.html drafts/#{name}"
 end
 
+
+# a task to test functions
 task :test do
 end
 
