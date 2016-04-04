@@ -20,8 +20,9 @@ class Tags
     files = Dir.entries input 
     files.delete "."
     files.delete ".."
-
-    files
+    
+    result = files.select {|file| file !~ /~/ &&  file !~ /\.swp/}
+    result
   end
 
   def create_tag_dictionary(directory, files)
@@ -29,7 +30,6 @@ class Tags
       
     files.each do |file|
       tags = extract_tags directory, file
-      puts tags.inspect
       next if tags.nil? || tags.empty? 
 
       tags.each do |tag|
@@ -37,16 +37,16 @@ class Tags
         result[tag] << file unless result[tag].include? file
       end
     end
-    puts result.inspect
     result
   end
 
   def extract_tags(directory, file)
-    page = File.read "#{directory}/#{file}" 
+    file =  "#{directory}/#{file}" 
+    page = File.read file
     doc = Nokogiri::HTML page
     query = doc.css("#tags").first
     result = [] 
-
+    
     unless  query.nil? 
       tags = query.content.split ','
       result = tags.map {|tag| tag.strip}
