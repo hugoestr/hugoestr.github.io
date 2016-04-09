@@ -44,7 +44,7 @@ class Tags
     file =  "#{directory}/#{file}" 
     page = File.read file
     doc = Nokogiri::HTML page
-    query = doc.css("#tags").first
+    query = doc.css("#keywords").first
     result = [] 
     
     unless  query.nil? 

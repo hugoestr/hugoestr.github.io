@@ -28,6 +28,7 @@ end
 
 task :clear_backups do
   shell "rm blog/*.*~"  
+  shell "rm tags/*.*~"  
 end
 
 task :collect_tags do
@@ -38,11 +39,10 @@ end
 task :test do
 end
 
-
 # utilities
 
 def create_tags()
-  tags = Tags.new "blog", "tags", "template.html"
+  tags = Tags.new "blog", "tags", "tag.html"
   tags.create_tags
 end
 
@@ -112,12 +112,13 @@ def clean_cr_from(draft)
 end
 
 def copy_meta(doc)
-  puts "copying tags to meta"
+  puts "copying meta to tags"
 
   keywords_meta = doc.css('#keywords').first
   tags = doc.css('#tags').first
 
-  keywords_meta.attributes['content'].value = tags.content
+  #TODO: tags must add children as links
+  tags.attributes['content'].value = (create_tag_links "tags",  keywords_meta.content)
 end
 
 def copy_title(doc)
@@ -146,6 +147,15 @@ END
   result += "  </entry>"
 
   result
+end
+
+def create_tag_links(tag_directory, tag_string)
+  tags = tag_string.split(",").map do |item|
+    tag = item.strip  
+    "<a href=\"#{tag_diretory}/#{tag}.html\">#{tag}<br />" 
+  end
+  
+  Nokogiri::HTML::fragment (tags.join '')
 end
 
 def does_not_exist(name)
