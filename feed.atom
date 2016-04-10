@@ -7,7 +7,18 @@
   <link href="http://hugoestr.github.io/"></link>
 
   <author><name>Hugo Estrada</name></author>
-  <updated>2016-04-02T18:12:54-04:00</updated>  
+  <updated>2016-04-10T10:30:11-04:00</updated>  
+
+  <entry>
+    <title>Adding tags to minimal blog platform</title>
+    <link href="http://hugoestr.github.io/blog/tags.html"></link>
+    <updated>2016-04-10T10:30:09-04:00</updated> 
+    <published>2016-04-10T10:30:09-04:00</published>
+    <summary>The next step for my static site generator is adding tag pages and links</summary>
+    <author><name>Hugo Estrada</name></author>
+    <category term="tags minimalism Captain Ahab "></category>
+    <id>urn:uuid:84281f1a-df23-4e6d-aadf-038657fe2d67</id>
+  </entry>  
 
   <entry>
     <title>Adding dates in the blog system</title>

@@ -69,7 +69,7 @@ def add_to_dom(markup)
   updated.after node
  
   FileUtils.cp "feed.atom", "backup.atom"
-  to_html file, doc
+  to_html file, doc.to_html
 end
 
 def add_to_rss(draft)
@@ -90,18 +90,14 @@ def adjust(draft)
   add_links doc
   add_publish_date doc
 
-  to_html draft, doc
+  to_html draft, doc.to_html
 end
 
-def change_stylesheet_location(draft)
+def change_relative_paths(draft)
   page = File.read draft
-  doc = Nokogiri::HTML page
+  reformatted = page.gsub 'href="../', 'href="'
 
-  puts "re-assigning stylesheet"
-  stylesheet = doc.css('#stylesheet').first
-  stylesheet.attributes["href"].value = "site.css" 
-
-  to_html draft, doc
+  to_html draft, reformatted
 end
 
 def clean_cr_from(draft)
@@ -114,10 +110,10 @@ end
 def copy_meta(doc)
   puts "copying meta to tags"
 
-  keywords_meta = doc.css('#keywords').first
+  keywords = doc.css('#keywords').first
   tags = doc.css('#tags').first
 
-  links = create_tag_links "tags",  keywords_meta.content
+  links = create_tag_links "tags",  keywords.attributes['content'].content
   links.children.each {|link| tags.add_child link}
 end
 
@@ -150,11 +146,12 @@ END
 end
 
 def create_tag_links(tag_directory, tag_string)
+  puts tag_string
   tags = tag_string.split(",").map do |item|
     tag = item.strip  
-    "<a href=\"#{tag_diretory}/#{tag}.html\">#{tag}<br />" 
+    "<a href=\"../#{tag_directory}/#{tag}.html\">#{tag}</a> " 
   end
-  
+ 
   result = Nokogiri::HTML::fragment (tags.join '')
 end
 
@@ -172,7 +169,13 @@ end
 def draft_commit(name)
   puts "commiting draft changes"
   `git add blog/#{name}`
+  `git rm draft/#{name}`
   `git commit -m "Cleaned up and moved #{name} from draft to blog."`
+end
+
+def feed_commit()
+  `git add feed.atom backup.atom`
+  `git commit -m "Updating feeds."`
 end
 
 def index_commit(name)
@@ -223,10 +226,11 @@ end
 
 def publish(name)
   to_index name
-  change_stylesheet_location "index.html"
+  change_relative_paths "index.html"
   
   draft_commit name
   index_commit name
+  feed_commit 
 end
 
 def ready_to_publish(draft)
@@ -241,8 +245,8 @@ def shell(command)
   system command
 end
 
-def to_html(name, doc)
-  File.write(name, doc.to_html) 
+def to_html(name, data)
+  File.write(name, data) 
   clean_cr_from name
 end
 
