@@ -48,7 +48,7 @@ class Tags
     result = [] 
     
     unless  query.nil? 
-      tags = query.content.split ','
+      tags = query.attributes['content'].content.split ','
       result = tags.map {|tag| tag.strip}
     end
 

@@ -117,8 +117,8 @@ def copy_meta(doc)
   keywords_meta = doc.css('#keywords').first
   tags = doc.css('#tags').first
 
-  #TODO: tags must add children as links
-  tags.attributes['content'].value = (create_tag_links "tags",  keywords_meta.content)
+  links = create_tag_links "tags",  keywords_meta.content
+  links.children.each {|link| tags.add_child link}
 end
 
 def copy_title(doc)
@@ -155,7 +155,7 @@ def create_tag_links(tag_directory, tag_string)
     "<a href=\"#{tag_diretory}/#{tag}.html\">#{tag}<br />" 
   end
   
-  Nokogiri::HTML::fragment (tags.join '')
+  result = Nokogiri::HTML::fragment (tags.join '')
 end
 
 def does_not_exist(name)
