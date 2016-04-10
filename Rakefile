@@ -192,7 +192,7 @@ def get_document_attributes(draft)
   
   title = doc.css("title").first
   summary = doc.css("#summary").first
-  tags = doc.css("#tags").first
+  tags = doc.css("#keywords").first
 
   result[:title] = title.content 
   result[:link] = "http://hugoestr.github.io/blog/#{draft}"

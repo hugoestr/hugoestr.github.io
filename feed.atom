@@ -16,7 +16,9 @@
     <published>2016-04-10T10:37:22-04:00</published>
     <summary>The next step for my static site generator is adding tag pages and links</summary>
     <author><name>Hugo Estrada</name></author>
-    <category term="tags minimalism Captain Ahab tags minimalism Captain Ahab "></category>
+    <category term="tags"></category>
+    <category term="minimalism"></category>
+    <category term="Captain Ahab"></category>
     <id>urn:uuid:c23869f8-e336-4103-8e20-ef0ace28d8ee</id>
   </entry>  
 
