@@ -78,8 +78,6 @@ def add_to_rss(draft)
   add_to_dom markup 
 end
 
-
-
 def adjust(draft)
   page = File.read draft
   doc = Nokogiri::HTML page 
