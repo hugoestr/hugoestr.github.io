@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta id="keywords" name="keywords" content="programming,languages">
+        
+        <title></title> 
+        <link id="stylesheet" rel="stylesheet" type="text/css" href="../site.css"></link>
+    </head>
+   
+    <body>
+    <header class="header">
+      <h1> <a class="home-link" href="http://hugoestr.github.io">&gt;&gt;=</a> Hugo Estrada</h2>
+    </header>
+
+      <article class="article">
+        <header>
+          <h2 class="title" id="title">How I explore a new programming language</h2> 
+          <p class="summary" id="summary">
+The common steps I follow when I learn a new programming language           
+          </p>
+          <p id="published-date" class="date"></p>
+        </header> 
+        
+        <section id="content">
+ 
+
+        <h3>Read about the language</h3>
+        <p>When I first hear about a programing language, I first look at their wikipedia page. Then I visit their homepage and read how it describes itself. I look around at their easy tutorials and documentation.</p>
+
+        <p>I process the wikipedia article as how others look at the language. The wikipedia page will quickly tell you what kind of a language it is, what it was inspired in, and highlight some of the interesting features. It is often written from the perspective of something who is not emotionally invested in the language, so you avoid selling pitches.</p>
+
+        <p>The home page is reflects how the creators of the language see themselves. Often the first few paragraphs will tell you the philosophy and objective of the language. </p>
+        
+        <p>The home page is also the gate to the language's documentation. Documentation often reflects the maturity of the language, the quality of the community, and their outlook towards beginners. How beginners are help is important because the friendlier they are to beginners the more enjoyable it will be to work with the language, since at some point we always end up interacting with other people when you do programming.</p>
+
+        <p>Examples of languages with good documentation pages are Python, Ruby, Clojure.</p> 
+
+        <h3>Installing the language</h3>
+        <p>The next step is installing the language. Ideally this step should be easy. Sometimes, especially with newer languages, it isn't. Easy installations for beginners is a critical element for language adoption. An installation program is better than package managers unless the package manager is mature and bug-free enough to allow for quick, seamless installation. Python has a great installation experience when installing via a package. Clojure's Lein installation should be the model when using version/package managers for installing the language.</p>
+
+        <h3>Working through the tutorials; using the REPL</h3>
+        <p>Once the language is installed, I work through the short tutorials. I will try first the tutorials from the language's main page, if they exist. If not I will search around for a 10-minute tutorial.</p>
+        <p>I work through those to get a sense of the syntax and the language. When I follow them, I follow the instructions of typing everything as expressed by <a href="http://learnpythonthehardway.org/" >Learn Python the Hard Way</a>. Even when the tutorials tells you to copy and paste, I will type it out so that I can absord what it feels to write the language.</p>
+        
+        <p>If I am still interested in the language, then I spend some time going through their recommended tutorials. Some of these are longer. Once I have a sense for the language I sometimes skim sections and come back to them and work through them the hard way.</p>
+
+        <p>It is also around this point where I learn how to run its Read, Evaluate, Print Loop(REPL) interactive session shell. This is the program that allows you enter lines a a time of code and have them evaluated immediately. Super useful for confirming whether a line will work or not.</p>
+
+        <h3>How to run a script tha print "Hello World"</h3>
+        <p>The next step is to write a function that prints "hello world" or the result of a function. Recently that function has become quick sort. I learn how to run the code as a script and how to compile it. For exploration, I prefer running them as scripts because it allows for quicker. I also attempt to learn how to do it without using package managers. They are useful, but the extra magic without understanding the fundamentals get in the way of learning. In practical terms it means something like running clojure without lein, elixir without mix, haskell without stack.</p>
+        
+        <h3>How to test</h3>
+        <p>I am still exploring the language, so I don't want to learn a test framework. Instead I want to create a simple function that can assert equality.</p>
+
+        <h3>Writing simple data structures and algorithms</h3>
+        <p>By writing simple data structures and algorithsm I can get a true feel for the language. I learn how you create more elaborate data types. I learn how one references other data types. Is it by pointers? It is by implied reference? Do you do it through structures? Explicit data types? Simple algorithms will also expose how looping works in the language.</p>
+
+        <h3>Learning what makes the language unique</h3>
+        <p>Most emerging languages have an element that makes them unique from the other languages. It can be purity for Haskell, or the actor model for Erlang, macros in lisp, jvm library interop with Clojure, or blocks and procs for Ruby. These are features that decide people to use these different langauges. It is often best to learn them where they emerged since the pattern will be best express there.</p>
+
+        <h3>Projects: using it to script or to build a small project</h3>
+        <p>If by this point I want to use the language, I will come up with a simple project to fully explore it. When the need comes to write a script for work, I will make a point to reach to the new language to write out the script. Then File IO and persistance will natural occur.</p>
+        
+       </section>
+
+
+        <section class="tags">
+          Tags: <span id="tags"></span>
+        </section> 
+      </article> 
+
+      <div class="links">
+        Related links:<br />
+        <div id="related-links"></div>
+       
+        Previous links:<br />
+        <div id="previous-links"></div>
+      </div>
+      
+       <footer class="footer">
+
+         <p class="about"><a href="http://hugoestr.github.io/blog/manifesto.html">About</a>: I am a software developer. I code in C#, Ruby, and many other languages.  I like poetry, museums, and ukuleles. I lead my life through the principles of dadaism and nonviolence.</p>
+        <p>
+          <a href="http://hugoestr.github.io/feed.atom">atom</a>  
+          <a href="http://twitter.com/hugoestr/">twitter</a>  
+          <a href="http://github.com/hugoestr/">github</a>
+        </p> 
+
+        <p>Lovingly crafted by hand with <a href="http://www.vim.org/">Vim</a></p>
+      </footer>
+    </body>
+</html>

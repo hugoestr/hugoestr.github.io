@@ -7,7 +7,17 @@
   <link href="http://hugoestr.github.io/"></link>
 
   <author><name>Hugo Estrada</name></author>
-  <updated>2016-04-10T10:37:23-04:00</updated>  
+  <updated>2016-04-24T15:38:54-04:00</updated>  
+
+  <entry>
+    <title>Recursion vs Iteration: two different ways of thinking</title>
+    <link href="http://hugoestr.github.io/blog/recursion_and_iteration.html"></link>
+    <updated>2016-04-24T15:38:53-04:00</updated> 
+    <published>2016-04-24T15:38:53-04:00</published>
+    <summary>Switch your thinking from recursition to iteration when you need an iterative solution.</summary>
+    <author><name>Hugo Estrada</name></author>
+    <id>urn:uuid:75055e8d-1aea-4e97-999f-0b1b9a4f1dc1</id>
+  </entry>  
 
   <entry>
     <title>Adding tags to minimal blog platform</title>

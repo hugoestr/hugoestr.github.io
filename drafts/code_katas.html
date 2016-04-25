@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta id="keywords" name="keywords" content="katas,programming,form,practice,TDD,DRY,YAGNI">
+        
+        <title></title> 
+        <link id="stylesheet" rel="stylesheet" type="text/css" href="../site.css"></link>
+    </head>
+   
+    <body>
+    <header class="header">
+      <h1> <a class="home-link" href="http://hugoestr.github.io">&gt;&gt;=</a> Hugo Estrada</h2>
+    </header>
+
+      <article class="article">
+        <header>
+          <h2 class="title" id="title">Katas as form in programming</h2> 
+          <p class="summary" id="summary">
+Identifying katas in programming for more efficient teaching
+          </p>
+          <p id="published-date" class="date"></p>
+        </header> 
+        
+        <section id="content">
+ 
+        <p>Years ago I found an obscure little book for business people on Japanese katas. The book was written by an American at some point in the early 90s, and it claimed that the concept of a kata was what gave the Japanese its competitive advantage. So by creating a repeatable form that anyone can practice, be it sword fighting, archery, flower arrangement, or how to tighten bolts on the assembly line, a teacher could transmit this information efficiently to any student. The student, in term, would practice in deep concentration, paying attention to the task, and noticing where one could do subtle improvements. The book went on to say how this kind of deliberate practice is found all over the world. Western musicians have practiced in this way for centuries. What made Japan special was that the combination of teaching through repeatable forms and deliberate practice is an explicitely recognized cultural practice with the name kata.</p>
+        
+        <p>Now, I don't know how accurate this analysis of the kata or Japan is. The book was written by an American in the 90s, at a time when there is fear and fascination with the rapid rise of the Japanese economy from the 40 to the 80s. American business culture loves the gimmicky quick fix, the secret plan or practice that can turn around sales, productivity, quality, or moral. The book was written within this tradition.</p>
+
+        <p>Yet even if the definition and explanation of the kata is incorrect, I have found it to be useful. It is especially useful in the research into success and expert development supports how this book describes what the kata is. And we can use this definition of the kata to see how this can apply to teaching programming and different programming practices.</p>
+
+        <p>The interest of the kata as a way of teaching programming has a long tradition in the programming community. Code katas is a common set of exercise that teach TDD or different languages. We several sites that offer these kinds of practice puzzles for programmers. I highly recommend them. It is a quick way to learn new languages and quickly become proficient with them in very little time.</p>
+        <p>Yet these code katas bothered me because they are not repeatable forms. Code retreat explicitly concentrate in trying different ways of exploring a solution to the same problem. I personally love code retreats. I also see them as a rapid way of learning and passing along practices. Still, the exercise themselves called katas do not meet the first definition of katas that I learned from the book.</p>
+        
+        <p><strong>For the rest of the blog entry, I will define kata as a form that distills knowledge into a shape that students can repeat in practice.</strong> The emphasis here is on "shape" and "repeatable".</p>
+
+        <p>I will also use the term "form" more often than not because I acknowledge that "kata" in the U.S. programming world is strongly associated with exploratory practice puzzle.</p>
+
+        <p>Now let's focus on how we can create forms that we can distill knowledge to teach to programmers. Let's look at music and martial art practices. It is clear how you can practice the same melody or the same fighting moves. Everyone agrees that you cannot do this with programming because you are creating a new solution. Creativity cannot be repeatable because if it is, then it is not a creative solution.</p>
+
+        <p>Now, rather than focus on the musician as are model for creating forms, the martial artist is a better example. The martial artist perform katas against the air. They can perform katas with another martial artist. The kata forms are exercised when in combat. The air, the fellow student, and the oponent are the applications of the form. The form is repeatable in all of the cases above. We should see each practice puzzle as an oponent, while the movements on how we approach that oponent remains mostly the same, the opponent is different.</p>
+
+        <p>What we can shape into a form is <em>how</em> we program and how we shape our code in the text editor. The ritualistic practices and the visual shape of our code ARE repeatable. This the movement that we can package into a form that we can then teach other programmers.</p>
+
+        <p>Because creating these shapes are so useful, the programming world already has many of these forms in place. That is what TDD is. The shape of coding takes the form of "writing test", "running test to fail", "coding to pass", "running test to pass", "refactor", "confirming test still pass." Unlike solving problems, this is repeatable. This is and has been successfully taught. This is one of the real katas in code katas: it is the shape on your behavior while solving problems, not the puzzle itself. This form is what allows code retreats to use the same puzzle and have different solutions to the same problem and still be so successful as a teaching mechanism. Let me stress that in my personal experience, learning TDD was probably the most important thing that I learned at code retreats. Yes, I pick up many useful tidbits here and there. But what I can apply to any language and any project is the form of TDD.</p>
+
+        <p>Here is an example of what I find to be a beautiful kata or teachable form. This the function designing recipe from How To Design Programs book.</p>
+
+        <p>At first it looks like it is some mad libs kind of template for creating functions. It looks like it is overblown. It looks stupid for easy functions.</p>
+        <p>Now look at it carefully. Following this templates does the following: it writes documentation. It makes the programmer think about what types the function expects and will return. It adds the basic shape of the function. It provides tests as examples for the function, which should be written before the function is written. It has a particular coding style. Not explicitly said, it prevents adding features that it doesn't need.</p>
+
+        <p>This recipe concentrates so many good practices in such a simple format. This is a repeatable shape. This is a kata that we can all practice.</p>
+
+        <p>There are many other kata-like principles that help shape forms. Such as principles of not having functions longer than 10 lines. Or how function names should be self-documenting. Yet they don't become a proper kata until you include them into a set of predefine movements.</p>
+
+        <p>So what does this mean? It means that by being aware of what is shapable in programming we can better teach this to other programmers. It means that we can create our own katas at our different workplaces to quickly teach and shape the practices of different teams.</p>
+
+        <p>For example, if you want to introduce a pull request workflow to your team, you can design a kata for it. Then have a session when people new to git and pull request workflows practice the shape of creating new branches, making changes, submitting pull requests, and doing code review before accepting the changes.</p>
+
+        <p>The outline of the kata then works as a checklist and documentation for the people learning it.</p>
+
+        <p>Another example. You want to introduce TDD to the team. You can create a kata for TDD for unit testing the business library, which should be closer to the purest version of TDD. Use that for a while. Once people are comfortable, then we can introduce another kata that introduces integration tests. Later you can introduce acceptance tests. Katas allows us to shape what we show to the learners. What to introduce later.</p>
+       
+        <p>So </p> 
+
+
+        </section>
+
+
+        <section class="tags">
+          Tags: <span id="tags"></span>
+        </section> 
+      </article> 
+
+      <div class="links">
+        Related links:<br />
+        <div id="related-links"></div>
+       
+        Previous links:<br />
+        <div id="previous-links"></div>
+      </div>
+      
+       <footer class="footer">
+
+         <p class="about"><a href="http://hugoestr.github.io/blog/manifesto.html">About</a>: I am a software developer. I code in C#, Ruby, and many other languages.  I like poetry, museums, and ukuleles. I lead my life through the principles of dadaism and nonviolence.</p>
+        <p>
+          <a href="http://hugoestr.github.io/feed.atom">atom</a>  
+          <a href="http://twitter.com/hugoestr/">twitter</a>  
+          <a href="http://github.com/hugoestr/">github</a>
+        </p> 
+
+        <p>Lovingly crafted by hand with <a href="http://www.vim.org/">Vim</a></p>
+      </footer>
+    </body>
+</html>
