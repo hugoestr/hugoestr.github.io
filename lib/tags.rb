@@ -37,6 +37,7 @@ class Tags
         result[tag] << file unless result[tag].include? file
       end
     end
+
     result
   end
 
