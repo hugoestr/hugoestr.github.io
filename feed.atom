@@ -7,7 +7,17 @@
   <link href="http://hugoestr.github.io/"></link>
 
   <author><name>Hugo Estrada</name></author>
-  <updated>2016-04-24T15:38:54-04:00</updated>  
+  <updated>2016-12-17T14:47:31-05:00</updated>    
+
+  <entry>
+      <title>Just a little test</title>
+      <link href="http://hugoestr.github.io/blog/test2.html"></link>
+      <updated>2016-12-17T14:47:29-05:00</updated> 
+      <published>2016-12-17T14:47:29-05:00</published>
+      <summary>A test that I want to share with people</summary>
+      <author><name>Hugo Estrada</name></author>
+    <id>urn:uuid:8a7039e3-6f7c-4065-9d1f-7f527b880835</id>
+  </entry>  
 
   <entry>
     <title>Recursion vs Iteration: two different ways of thinking</title>
