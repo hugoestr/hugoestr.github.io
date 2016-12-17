@@ -14,19 +14,19 @@ class Entry
     @link = data[:link]
     @summary = data[:summary]
     @author = data[:author]
-    @tags = data[tags]
+    @tags = data[:tags]
   end
 
   def parse_csv(line)
-    data = CSV.parse line
-    
+    data = line.parse_csv
+
     @published = data[0]
     @updated = data[1]
     @title = data[2]
     @link = data[3]
     @summary = data[4]
     @author = data[5]
-    @tags = data[6].split ";"
+    @tags = data[6].split ";" unless data[6].nil?
   end
 
   def to_a()

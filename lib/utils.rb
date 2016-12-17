@@ -9,6 +9,6 @@ def shell(command)
 end
 
 def to_html(name, doc)
-  File.write(name, doc.to_html) 
+  File.write(name, doc) 
   clean_cr_from name
 end

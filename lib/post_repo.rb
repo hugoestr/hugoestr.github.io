@@ -4,6 +4,8 @@ class PostRepo
   attr_reader :posts
 
   def initialize(file)
+    @posts = []
+    
     @file = file
     read_file(@file) 
   end
@@ -24,11 +26,13 @@ class PostRepo
   private
 
   def read_file(file)
-    File.open do |line|
+    File.open(file).each do |line|
       entry = Entry.new
       entry.parse_csv line
 
-      @posts << entry
+      puts entry.inspect 
+
+      @posts << entry 
     end 
   end
 

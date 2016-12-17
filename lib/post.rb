@@ -181,14 +181,13 @@ END
   end
 
   def previous_entries()
-    data = PostRepo.new 'data/posts.txt'   
-    recent = data.take 3 
+    data = PostRepo.new 'data/posts'   
+    recent = data.posts.take 3 
 
     markup = ""
 
     recent.each do |entry|
-      title, link = entry.split '|'
-      markup += "<a href='#{link}'>#{title}</a><br />"
+      markup += "<a href='#{entry.link}'>#{entry.title}</a><br />"
     end
 
     Nokogiri::HTML::fragment markup
