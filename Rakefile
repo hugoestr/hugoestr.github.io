@@ -3,6 +3,16 @@ require 'rake'
 require_relative 'lib/tags'
 require_relative 'lib/post'
 
+task :help do
+  puts "\n\nAhab's White Whale static site generator\n\n"
+
+  puts ":draft          -- creates draft"
+  puts ":publish        -- publishes draft"
+  puts ":clear_backups  -- clean backup files "
+  puts ":collect_tags   -- gathers and publishes tags"
+  puts ":test           -- test currently method in development"
+end
+
 task :publish do
   ARGV.each { |a| task a.to_sym do ; end }
   draft = ARGV[1]
