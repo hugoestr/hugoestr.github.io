@@ -56,10 +56,13 @@ class Post
   end
 
   def add_to_rss(draft)
-    data = get_document_attributes draft
-    markup = create_entry data
     
-    repo = PostRepo.new 'data/posts.txt'   
+    data = get_document_attributes draft
+    now = Time.now.to_datetime.rfc3339
+    
+    markup = create_entry data, now
+    
+    repo = PostRepo.new 'data/posts'   
     repo.add data
     repo.save 
 
@@ -105,14 +108,6 @@ class Post
     title.content = headline.content
   end
 
- # start here. Create the atom feed from the repo
-  def create_feed()
-#
-#    repo = PostRepo.new 'data/posts.txt'   
-#    repo.entries.sort_by{|e| e.published }.each do |entry|
-#
-#    end
-  end
 
   def create_entry(data, now)
     result = <<END
