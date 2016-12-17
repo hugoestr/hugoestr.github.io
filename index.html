@@ -4,9 +4,9 @@
 <meta http-equiv="Content-Type" content="text/html; charset=IBM437">
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <meta id="keywords" name="keywords" content="algorithms,recursion,ruby">
+        <meta id="keywords" name="keywords" content="test,second one">
         
-        <title>Recursion vs Iteration: two different ways of thinking</title> 
+        <title>Just a little test</title> 
         <link id="stylesheet" rel="stylesheet" type="text/css" href="site.css">
     </head>
    
@@ -17,110 +17,23 @@
 
       <article class="article">
         <header>
-          <h2 class="title" id="title">Recursion vs Iteration: two different ways of thinking</h2> 
+          <h2 class="title" id="title">Just a little test</h2> 
           <p class="summary" id="summary">
-Switch your thinking from recursition to iteration when you need an iterative solution.
+            A test that I want to share with people 
           </p>
-          <p id="published-date" class="date">04-24-2016</p>
+          <p id="published-date" class="date">12-17-2016</p>
         </header> 
         
         <section id="content">
  
-          <p>Recursive thinking is interesting in that it appears hard when one first encounters it. Once one understands it, it is simpler and easier to find solutions to problems that have a recursive nature.</p>
-
-          <p><a href="https://en.wikipedia.org/wiki/Recursion">Recursion</a>, howeve powerful it is, runs into the wall of reality when most computer languages have a lousy support for it. Make too many recursive calls and you have a stack overflow. This means that we find ourselves in a situation where one can find the solution for a problem via recursion, yet one has to translate the recursive solution into its iterative form. This is often dismissed as a simple task. But is it? Lets try it.</p>
+        <p> And this is the data that I add to it</p>
 
 
-        <p>Lets write a solution for factorial, what is essentially the "Hello World" problem of recursion. A factorial is that you start with a number, lets say 4, and then you multiply that number by all of the previous numbers until you reach 1. So if we are finding the factorial of 4, we would do 4 X 3 X 2 X 1.</p>
-        <p>I am going to use ruby as the language to explore this. I am going to write a simple assert() function so that we can write tests. You can see the whole exploration session as gist. Let me warn than the implementations of factorial are meant as examples to help us reason and not as properly finished functions. There are no guards against incorrect types or wrong boundaries on purpose since it would distract our reasoning for this exploration session.</p>
-
-        <h3>Exploring recursive and iterative solutions</h3>
-        <p>This is my first recursive solution for factorial. The first line of the function is the base case. If the number we receive is 1, return 1. The second line performs the multiplication and makes the recursive call. It is short and simple to understand what is going on if you understand recursion.</p>
-
-        <pre>
-          <code>
-          def factorial(n)
-            return 1 if n == 1       # base case
-            n * factorial(n - 1)     # calculation
-          end
-          </code>
-        </pre>
-
-        <p>Now I am going to translate that function into an iterative solution that makes explicit what the programmer is assuming that is going on in the code above. Recursion can work in programming languages that use a stack when they do function or method calls. So I will create an explicit stack. The recursive solution also assumes three states. The first state is seeking the base case, where we are generating the list of numbers we to calculate the answer. The second state is when we are actually making that calculation. The final state is to know whether we are done or not. Here is a first go at implementing this.</p>
-
-        <pre>
-          <code>
-          def fac(n)
-            stack = []  
-            result = 1
-            base_reached = false 
-            done = false
-            current = n
-
-            loop do
-              
-              unless base_reached
-                if current == 1              # base case
-                  base_reached = true 
-                else
-                  stack &lt;&lt; current
-                  current -= 1
-                end
-              else
-                result *= current            # calculation
-                
-                unless stack.empty? 
-                  current = stack.pop
-                else
-                  done = true
-                end
-
-              end
-
-              break if done
-            end
-
-            result
-          end
-          </code>
-        </pre>
-
-        <p>I have put comments that match the equivalent calculation lines in each function. The implementation details of the second solution obscure the algorithm. I was able to get my tests passing at the first go with the recursive solution. I had to fix implementation problems with the second one. The more lines of code you have, the more opportunities you have to make a mistake.</p>
-
-        <p>At this point I know some readers will point out that it wasnt necessary to do all of what I did in the second function. There is a cleaner iterative solution that communicates how to calculate factorial better. Something like this.</p>
-
-        <pre>
-        <code>
-         def fact(n)
-          result = 1
-          
-          for i in (1..n)
-            result *= i
-          end 
-
-          result
-         end
-        </code>
-        </pre>
-
-        <p>You are right. This is a better iterative solution. Yet notice the subtle different: this is not a translation of the recursive solution. This is a different solution altogether arrived to it through a different thought process.</p>
-
-        <h3>Iterative thinking is different from recursive thinking.</h3>
-
-        <p>Recursion makes us think in terms of fuctions that present the same problem again and again until we reach a final base case. It is like the dolls with dolls within dolls. We know that the problem will be the same until we reach the last doll that you cannot open. The focus is that we confront the same problem each time.</p>
-        
-        <p>Iterative solutions makes us think repeatable actions on some list until we run out of cases. It is like having a stack of documents that need to be signed. You sign them until you run out of documents. The focus here is that we are going to repeat the same action.</p>
-
-
-        <p>We can think of recursive and iterative solutions, then, as somethinglike two different foreign languages that communicate the same ideas using different sounds, words, and grammar. And often it will be better to outright switch our mental thinking from recursive to iterative if we must implement an iterative solution and the language lacks direct or library support for recursive or functional solutions.</p> 
-
-
-        <p>Still, if you find yourself lost going from a recursive function to its iterative solution,  here is a <a href="http://blog.moertel.com/tags/recursion-to-iteration%20series.html">blog series about recursion to iteration</a> that teach different methods for translating recursive functions into iterative ones. </p>
         </section>
 
 
         <section class="tags">
-          Tags: <span id="tags"><a href="tags/algorithms.html">algorithms</a> <a href="tags/recursion.html">recursion</a> <a href="tags/ruby.html">ruby</a> </span>
+          Tags: <span id="tags"><a href="tags/test.html">test</a> <a href="tags/second%20one.html">second one</a> </span>
         </section> 
       </article> 
 
@@ -130,7 +43,7 @@ Switch your thinking from recursition to iteration when you need an iterative so
        
         Previous links:<br>
         <div id="previous-links">
-<a href="http://hugoestr.github.io/blog/tags.html">Adding tags to minimal blog platform</a><br><a href="http://hugoestr.github.io/blog/adding_dates.html">Adding dates in the blog system</a><br><a href="http://hugoestr.github.io/blog/database_for_site.html">Database for Site</a><br>
+<a href="http://hugoestr.github.io/blog/recursion_and_iteration.html">Recursion vs Iteration: two different ways of thinking</a><br><a href="http://hugoestr.github.io/blog/tags.html">Adding tags to minimal blog platform</a><br><a href="http://hugoestr.github.io/blog/adding_dates.html">Adding dates in the blog system</a><br>
 </div>
       </div>
       
