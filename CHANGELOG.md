@@ -1,3 +1,4 @@
+5/10/2018 -- Deleted stuff. Starting from almost zero again
 4/02/2016 -- Published date added to template.
 3/27/2016 -- Atom feed included. It add the last three entries when publishing.
 3/26/2016 -- Rake task for draft. Changes to template. Modification of highlight
