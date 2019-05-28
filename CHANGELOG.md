@@ -1,3 +1,4 @@
+5/28/2018 -- Deleted evem more stuff. 
 5/10/2018 -- Deleted stuff. Starting from almost zero again
 4/02/2016 -- Published date added to template.
 3/27/2016 -- Atom feed included. It add the last three entries when publishing.
