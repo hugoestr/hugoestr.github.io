@@ -28,23 +28,36 @@ defmodule Glass do
 
     System.cmd("cp", [name, "index.html"]) 
     System.cmd("mv", [name,"blog"])
-    
+   
     git_rm(name) 
     git_add(published_name) 
     git_add("index.html") 
     git_commit("Publishing  #{name}")
+
+    git_push()
   end
 
-  def git_add_commit(path) do 
-    system.cmd("git", ["add", path]) 
+  def help() do
+    IO.puts("draft   -- create a draft")
+    IO.puts("publish -- publish a draft")
+    IO.puts("help    -- get this screen")
+  end
+
+  def git_push() do
+    System.cmd("git", ["pull"]) 
+    System.cmd("git", ["push"]) 
+  end
+
+  def git_add(path) do 
+    System.cmd("git", ["add", path]) 
   end
 
   def git_rm(path) do
-    system.cmd("git", ["rm", path]) 
+    System.cmd("git", ["rm", path]) 
   end
 
   def git_commit(message) do
-    system.cmd("git", ["commit", "-m", message]) 
+    System.cmd("git", ["commit", "-m", message]) 
   end
 end
 
@@ -54,6 +67,7 @@ end
 case action do
   "draft"   -> Glass.draft(title)
   "publish" -> Glass.publish(title)
+  "help"    -> Glass.help()
   _         -> IO.puts("I don't know how to #{action}")
 end
 
