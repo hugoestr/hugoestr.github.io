@@ -28,8 +28,7 @@
         <dl>
           <dt>Print to console<dt>
           <dd>
-            <pre><code>IO.puts "Hello World"</code></pre>
-          </dd>
+            <pre><code>IO.puts "Hello World"</code></pre></dd>
 
           <dt>Run script on the console<dt>
           <dd> The file should have the extension .exs for Elixir script.
@@ -37,12 +36,125 @@
           </dd>
 
           <dt>Read arguments from console<dt>
+          <dd> 
             <pre><code>[first| rest] = System.argv</code></pre>
           </dd>
 
           <dt>Create a starndard project<dt>
+          <dd>
             <pre><code>$ mix new &lt;project_name&gt; </code></pre>
           </dd>
+
+          <dt>Write to a file<dt>
+          <dd> From <a href="https://elixir-lang.org/getting-started/io-and-the-file-system.html">Elixir's Getting Started</a>
+            <pre><code>
+              {:ok, file} = File.open("hello", [:write])
+              IO.binwrite(file, "world")
+              File.close(file) 
+            </code></pre>
+          </dd>
+          
+          <dt>Read  a file<dt>
+          <dd> From <a href="https://elixir-lang.org/getting-started/io-and-the-file-system.html">Elixir's Getting Started</a>
+            <pre><code>
+              File.read("file_name") 
+            </code></pre>
+          </dd>
+
+          <dt>Write a function and a module<dt>
+          <dd> All functions must be in modules
+            <pre><code>
+              defmodule Hello do
+                def salutation do
+                  IO.puts "hello world"
+                  private_function()
+                end
+
+                defp private_function do
+                  IO.puts "I am private"
+                end
+              end
+            </code></pre>
+          </dd>
+
+          <dt>Write a string<dt>
+          <dd> 
+            <pre><code>
+              name = "This is a string" 
+            </code></pre>
+          </dd>
+
+          <dt>Search a string<dt>
+          <dd> 
+            <pre><code>
+              String.contains?("is", "This is a string")
+            </code></pre>
+          </dd>
+
+          <dt>Replace a string<dt>
+          <dd> 
+            <pre><code>
+              String.contains?("This is a string", "is")
+            </code></pre>
+          </dd>
+
+          <dt>Substitute a string<dt>
+          <dd> 
+            <pre><code>
+              String.replace("This is a string", "is", "IS")
+            </code></pre>
+          </dd>
+
+
+          <dt>Split a string into an array<dt>
+          <dd> 
+            <pre><code>
+              String.split("This is a string", " ")
+            </code></pre>
+          </dd>
+
+          <dt>Do regex match<dt>
+          <dd> Below are the String and Regex solutions. Regex module contains a lot more functions and documentation on regex expressions in Elixir. 
+            <pre><code>
+              String.match?("This is a string", ~r/^This/)
+              Regex.match?(~r/^This/, "This is a string")
+            </code></pre>
+          </dd>
+
+          <dt>Split a string into an array<dt>
+          <dd> 
+            <pre><code>
+              String.split("This is a string", " ")
+            </code></pre>
+          </dd>
+
+          <dt>Write a conditional<dt>
+          <dd>Elixir has three ways of writing conditionals:  <a href="https://elixir-lang.org/getting-started/case-cond-and-if.html">cond, case, if.</a> 
+            <pre><code>
+              # case is for pattern matching
+              case value do
+                "apples"  -> apple_fuction()
+                "bananas" -> banana_function()
+                _         -> default()
+              end
+
+              # cond is for a series of conditionals.
+              # Equivalent to lispy cond
+              cond do
+                x > 10 -> greather()
+                x < 10 -> lesser ()
+                true   -> equal()
+              end
+
+              # And we have if, for standard if then clauses
+              if x == 10 do
+                  "goody"
+              else 
+                  "baddy"
+              end
+            </code></pre>
+          </dd>
+
 
         </dl>
 
