@@ -1,5 +1,24 @@
-defmodule Glass do
+defmodule Git do
+  def push() do
+    System.cmd("git", ["pull"]) 
+    System.cmd("git", ["push"]) 
+  end
 
+  def add(path) do 
+    System.cmd("git", ["add", path]) 
+  end
+
+  def rm(path) do
+    System.cmd("git", ["rm", path]) 
+  end
+
+  def commit(message) do
+    System.cmd("git", ["commit", "-m", message]) 
+  end
+
+end
+
+defmodule Glass do
   def file_name(title) do
     title
     |> String.trim()
@@ -12,14 +31,12 @@ defmodule Glass do
     "drafts/#{file_name(title)}.html"
   end
 
-  def draft(title) do
-    name = draft_name(title)
     IO.puts "Creating #{name}"
 
     System.cmd("cp", ["template.html",name]) 
 
-    git_add(name)
-    git_commit("Creatingdraft for #{name}")
+    Git.add(name)
+    Git.commit("Creating draft for #{name}")
   end
 
   def publish(title) do
@@ -29,35 +46,17 @@ defmodule Glass do
     System.cmd("cp", [name, "index.html"]) 
     System.cmd("mv", [name,"blog"])
    
-    git_rm(name) 
-    git_add(published_name) 
-    git_add("index.html") 
-    git_commit("Publishing  #{name}")
+    Git.rm(name) 
+    Git.add(published_name) 
+    Git.add("index.html") 
+    Git.commit("Publishing  #{name}")
 
-    git_push()
+    Git.push()
   end
 
   def help() do
     IO.puts("draft   -- create a draft")
     IO.puts("publish -- publish a draft")
-    IO.puts("help    -- get this screen")
-  end
-
-  def git_push() do
-    System.cmd("git", ["pull"]) 
-    System.cmd("git", ["push"]) 
-  end
-
-  def git_add(path) do 
-    System.cmd("git", ["add", path]) 
-  end
-
-  def git_rm(path) do
-    System.cmd("git", ["rm", path]) 
-  end
-
-  def git_commit(message) do
-    System.cmd("git", ["commit", "-m", message]) 
   end
 end
 
