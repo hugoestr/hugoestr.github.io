@@ -28,8 +28,7 @@ defmodule Glass do
   end
 
   def draft_name(title) do
-    "drafts/#{file_name(title)}.html"
-  end
+    name = "drafts/#{file_name(title)}.html"
 
     IO.puts "Creating #{name}"
 
