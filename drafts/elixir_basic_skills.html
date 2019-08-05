@@ -155,6 +155,42 @@
             </code></pre>
           </dd>
 
+          <dt>How to write loops<dt>
+          <dd>Elixir is a functional langauge, so procedural loops do not really exist. You use recursion to loop through lists. Below is an example. 
+            <pre><code>
+              defmodule Loops do
+                def add_one([], result) do
+                   result
+                end
+
+                def add_one([n| rest], result) do
+                  add_one(rest, [n + 1 | result])
+                end
+              end
+            </code></pre>
+          </dd>
+
+
+          <dt>Looping with map<dt>
+          <dd> Functional programming has what I call semantic looping. By this I mean that the looping function that you use is giving you a meaningful indication of what you are doing as you loop. This is somehting that you do not see in procedural programming. We learn about the intention of the loop by reading the code.<br />
+          The 'map' function takes a list, transforms each elements via a function, and then returns a list.
+            <pre><code>
+              def add_one_map(list) do
+                Enum.map(list, fn(n) -> n + 1 end)
+              end
+            </code></pre>
+          </dd>
+
+        <dt>Looping with filter<dt>
+          <dd>When you want to select items from a list, we use the filter function. Filter is sometimes called select too. You send a list a long with a function that will return a boolean. If the boolean is true, that element will be added to the result list. 
+
+            <pre><code>
+            def evens(list) do
+              Enum.filter(list, fn(n) -> rem(n, 2) == 0 end)
+            end
+            </code></pre>
+          </dd>
+
 
         </dl>
 
