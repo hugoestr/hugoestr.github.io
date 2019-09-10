@@ -25,6 +25,25 @@ A more detailed definition of the behavior of actors happens in page 238 under t
   * Binding, looking up values of names that occur within
   * Resource management, actors have a banker that gives them space and time
 
+Behavior of message passing to an actor [240]
+  
+  * Call the banker of R to approve the expenditure of resources by the caller
+  * The banker will probably eventually send a message to scheduler of T
+  * The scheduler will probably eventually send a message to the monitors of T
+  * The moinotors will probably eventually send a message to the intentions of T
+  * The intentions of T will probably eventually send a message to the continuation
+  * The continuation of T attempt to get work done
+
+Process of sending a message [240]
+
+  * Conceptually, when a message is passed, a new target is reusued or created
+  * Sending messages between actors is a universal control primitive
+  * Actors can talk directly to each other
+  * Sending a message to an actor is entirely free of side effects
+  * It is not guarantee that the target actor will send a message to the continuation
+  * The actor model is not like contour model
+
+
 # Benefits of using the Actor Model
 
 The paper has a series of lists that share many of the benefits from the actor model. They could roughly be categorized in conceptual and practical benefits. The main conceptual benefit is that by reducing computation to a single object with a well defined behavior you can formally derive the rest of computation. This should lead to easier ways for creating programs and understanding how they work via mathematical thinking.
@@ -64,8 +83,134 @@ IV. AI applications
 V. Acknowledgements
 VI. Bibliography
 
+## Bullet Lists
+
+The paper has a number of bullet lists. Here are the summaries of them
+
+Benefits of the actor model, [235, 236]
+
+  * Foundation, for procedural semantics
+  * Logical Calculae
+  * knowledge based programming
+  * Intention, what we would call specs
+  * Education
+  * Learning and Modularity
+  * Privacy protection
+  * Synchronization
+  * Simultaneous goals
+  * Structured programming
+  * Implementation
+  * Architecture
+
+Mechanisms for procedural problem solving [237]
+
+  * Procedural embedding
+  * Conservative etension
+  * Modular connectivity
+  * Modular equivalence
+
+Hierarchies of behavior for actors [238]
+
+  * Scheduler, that determines when the actor acts after a message has been sent
+  * Intentions, confirming preconditions are satisfied
+  * Monitoring, actors can have monitors that looks over each message sent to it
+  * Binding, looking up values of names that occur within
+  * Resource management, actors have a banker that gives them space and time
+
+Behavior of message passing to an actor [240]
+  
+  * Call the banker of R to approve the expenditure of resources by the caller
+  * The banker will probably eventually send a message to scheduler of T
+  * The scheduler will probably eventually send a message to the monitors of T
+  * The moinotors will probably eventually send a message to the intentions of T
+  * The intentions of T will probably eventually send a message to the continuation
+  * The continuation of T attempt to get work done
+
+Process of sending a message [240]
+
+  * Conceptually, when a message is passed, a new target is reusued or created
+  * Sending messages between actors is a universal control primitive
+  * Actors can talk directly to each other
+  * Sending a message to an actor is entirely free of side effects
+  * It is not guarantee that the target actor will send a message to the continuation
+  * The actor model is not like contour model
+
+Substitution, Reduction, Meta-evaluation [243]
+
+  * Evaluation
+  * Deduction
+  * Confirming consistency of actors and their intentions
+
+Automatic actor generator [244]
+
+  * Parameterization
+  * Compilation
+  * Abstract impossibilities removal
+  * example expansion
+  * protocol expansion
+  * abstract case generation
+
+## Presentation 
+
+  * The actor model for artificial intelligence
+    * It was released in 1973 by Carl Hewitt and
+    * The big idea: the introduction of the actor model
+  * Historical context
+    * MIT AI lab. Working with Marvin Minsky. Working on a system called Planner
+    * The idea was the embed knowledge procedurall
+    * Planner is a specialized version of lisp. Today we may call it a DSL
+    * Similar in goals to Prolog. You create a database representing knowledge. Then you query it.
+    * The actor model arises as a way to solve the problems of implemmenting Planner.
+    * Planner and coniver was discussed in several places
+  * The paper
+    * It feels like they had run into the concept, they got excited about the potential, and then wrote it with the excitment. The paper has 22 whimsical quotes. They quote computer manuals, computer science, Shakespear, and Caroll Lewis.
+    * For modern reader, who are trying to follow the evolution of an idea, it can feel a bit messy
+    * The defintion of what the actor model is, how it works, and what behaviors it should have are sprinkled in different parts of he paper. I am going to focus on the definition of what the actor is, and then we can discuss the benefits during discussion.
+  * The actor model
+   * The biggest surprise to me was to find that the actor model is an abstraction. And the paper stresses that it is an abstraction several times, saying how it could be implemented in different ways. Or that the implementation details didn't matter as long as the system worked according to this abstraction.
+
+   This means that the actor model, formost, is a conceptual tool, closer perhaps to lambda calculus than to practical programming. That said, the authors clearly thought it had many practical applications.
+
+  *  Definition of actors
+   * The actor -- it plays a role on cue according to the script
+   * Control and data flow are inseparable
+   * There is only one kind of behavior: sending messages to actors
+
+ Why actors? 
+  I see the mathematical desire to provide a solid foundation. From here we can deduce the rest of the world. It should now have a similar theoretical basis as logic or lambda calculus.
+  
+  They mention how it should be easier to prove the correctness of the system because actors check the intentions by checking the prerequists. They even call this a contract.
+
+  They introduce actor induction
+
+  if for each actor A
+    the intention of A is satisfied ->
+    the intentions of all actor sent messages by A are satisfied
+
+  The intetions are also actors.
+
+  They defined some abilities or behaviors for actors later in the paper under the heading of Hiararchies
+    Scheduling
+    Intentions
+    Monitoring
+    Binding
+    Resource management
+
+    All of these also done by actors.
+
+    They define the behavior of an actor sending a message to another actor
+
+  * Conceptually, when a message is passed, a new target is reusued or created
+  * Sending messages between actors is a universal control primitive
+  * Actors can talk directly to each other
+  * Sending a message to an actor is entirely free of side effects
+  * It is not guarantee that the target actor will send a message to the continuation
+
+
 
 # Discussion questions
+
+* Any questions on the definition of the actor model, as defined in the paper? 
 
 * How does it change your view of the actor model knowing that it is an abstraction?
 
@@ -81,7 +226,9 @@ VI. Bibliography
 
 * How is this different from OOP? Are OOP languages more or less cases of the actor model?
 
-
 * Functional programming is often presented as an alternative, even the opposite of OOOP. Yet this paper seems to hint that OOP was also born from a mathematical context.
 How did we get to believe that?
+
+## References
+
 
